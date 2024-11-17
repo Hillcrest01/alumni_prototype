@@ -6,5 +6,23 @@
 <h1 class="text-center">
     The university alumni association
 </h1>
+{% for job in jobs %}
+
+<h1> {{ job.title }} </h1>
+<p>
+    {{ job.body }}
+</p>
+
+<section>
+    {{ job.location }}
+</section>
+<p>
+    {{ job.job_type }}
+</p>
+
+<img src="{{ job.image }}" alt="an image here">
+<a href= {{job.link}} >see more</a>
+
+{% endfor %}
 
 {% endblock %}
