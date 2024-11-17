@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} edit_job {% endblock title %}
+
+{% block body %}
+<h1>
+    This is the page where you edit the job.
+</h1>
+
+
+<form action="" method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    
+    <div>{{ form.title.label }} {{ form.title }}</div>
+    <div>{{ form.body.label }} {{ form.body }}</div>
+    <div>{{ form.location.label }} {{ form.location }}</div>
+    <div>{{ form.job_type.label }} {{ form.job_type }}</div>
+    <div>{{ form.link.label }} {{ form.link }}</div>
+    <div>{{ form.image.label }} {{ form.image }}</div>
+    <div>{{ form.add_job() }}</div>
+  </form>
+
+  {% endblock body %}

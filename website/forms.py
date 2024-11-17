@@ -57,7 +57,7 @@ class FilesForm(FlaskForm):
     image = FileField('Add a Photo')
     add_files = SubmitField('submit files')
 
-class Gallery(FlaskForm):
+class GalleryForm(FlaskForm):
     image = FileField("Add the images")
     add_image = SubmitField('Add Image')
 
