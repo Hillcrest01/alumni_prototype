@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} login {% endblock %}
+
+{% block body %}
+<h1>
+    login
+</h1>
+<form action="" method="POST">
+    <!-- <label for="regno"> Enter your registration number </label><input type="text" label = "Enter your username" placeholder="e.g. Hillcrest"> <br>
+    <label for="password"> Enter your password </label><input type="password" label = "Enter your password" placeholder="password"> <br>
+    <button > Login </button> -->
+
+    {{ form.hidden_tag() }}
+
+    <div>
+        {{ form.regno.label }}
+        {{ form.regno }}
+    </div>
+    <div>
+        {{ form.password.label }}
+        {{ form.password }}
+    </div>
+    <div>
+        {{ form.log_in() }}
+    </div>
+</form>
+<p>Forgot your Password?</p>
+<p>
+Create an Account? <a href="/signup">Signup</a>
+</p>
+
+{% endblock %}

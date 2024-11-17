@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='src/input.css')}}">
+    <title>Alumni | {% block title %} {% endblock title %} </title>
+</head>
+<body class="text-center font-bold">
+    <nav>
+        <ul class="text-blue-800 my-57 text-center flex gap-10 cursor-pointer list-none">
+            <li>Home</li>
+            <li>Learning</li>
+            <li>Events</li>
+            <li>Scholarships</li>
+            <button class="text-blue-800"> <a  href="/signup">Register/Login</a> </button>
+        </ul>
+    </nav>
+    {% block body %}
+    {% endblock body %}
+
+    <footer>
+        <div>
+            <ul>
+                <li>Contact Us</li>
+                <li>Careers</li>
+                <li>About Us</li>
+                <li>News</li>
+                <li>Gallery</li>
+            </ul>
+            <ul>
+                <li>Facebook</li>
+                <li>Instagram</li>
+                <li>Twitter</li>
+                <li>Email</li>
+            </ul>
+            <section class="text-blue-800">
+                Copyright 2024 Egerton University Computer Science Department
+            </section>
+        </div>
+    </footer>
+</body>
+</html>

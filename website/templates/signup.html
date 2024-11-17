@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} login {% endblock %}
+
+{% block body %}
+<h1>
+    login
+</h1>
+<form action="" method="POST">
+    <!-- <label for="regno"> Registration Number </label><input type="text"  placeholder="e.g. S13/04401/21"> <br>
+    <label for="password"> Password </label><input type="password" placeholder="password"> <br>
+    <label for="password"> Confirm Password </label><input type="password" placeholder="confirm password"> <br>
+    <button > Sign Up </button> -->
+
+    {{ form.hidden_tag() }}
+
+    <div>
+        {{ form.regno.label }}
+        {{ form.regno }}
+    </div>
+    <div>
+        {{ form.year_of_study.label }}
+        {{ form.year_of_study }}
+    </div>
+    <div>
+        {{ form.email_address.label }}
+        {{ form.email_address }}
+    </div>
+    <div>
+        {{ form.password1.label }}
+        {{ form.password1 }}
+    </div>
+    <div>
+        {{ form.password2.label }}
+        {{ form.password2 }}
+    </div>
+    <div>
+        {{ form.sign_up() }}
+    </div>
+</form>
+<p>
+Have an Account Already? <a href="/login">Login</a>
+</p>
+
+{% endblock %}
