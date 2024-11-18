@@ -36,4 +36,4 @@ def gallery():
 @views.route('/blogs')
 def blogs():
     blogs = Blog.query.all()
-    return render_template('blogs.html' , blogs = blogs)
+    return render_template('blog.html' , blogs = blogs)

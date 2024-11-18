@@ -1,28 +1,150 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %} Home {% endblock %} {% block body %}
+<div class="hero">
+  <div class="homepage">
+    <div class="hero-main">
+      <span class="proud">We are Proud</span> <br />
+      <span class="students"
+        >Students of
+        <span style="color: #12bb32">Egerton University</span></span
+      >
+      <br />
+      <div class="quick-links">
+        <p>
+          Your gateway to connect with alumni, faculty and fellow students.
+          Here, you'll find an opportunity for mentorship, career guidance,
+          internships and network -all designed to help shape your academic and
+          professional journey. <br />Start exploring today and take the next
+          step towards your future.
+        </p>
+        <button class="jobs-link">
+          <a href="/jobs"> Jobs/Internships </a>
+        </button>
+        &nbsp; &nbsp;
+        <button class="alumni-connect">
+          <a href="/alumni"> Alumni Connect </a>
+        </button>
+      </div>
+    </div>
+    <img src="../static/images/homepage.jpg" alt="hero image here" />
+  </div>
+</div>
 
-{% block title %} Home {% endblock %}
+<div class="responsibility">
+  <h1>Our Responsibility</h1>
+  <div class="roles">
+    <div class="card">
+      <img src="../static/images/responsibility_01.avif" alt="" />
+      <h3>Scholarship</h3>
+      <p>
+        Empowering students through scholarships to support academic excellence
+        and reduce financial barriers. Discover numerous funding opportunities
+        tailored for our vibrant community.
+      </p>
+    </div>
+    <!-- mentorship -->
+    <div class="card">
+      <img src="../static/images/responsibility_02.webp" alt="" />
+      <h3>Mentorship</h3>
+      <p>
+        Connect with experienced alumni and professionals ready to guide you
+        through career development, personal growth, and academic success.
+      </p>
+    </div>
+    <div class="card">
+      <img src="../static/images/responsibility_03.avif" alt="" />
+      <h3>Build Our Community</h3>
+      <p>
+        Create meaningful connections by engaging with peers, alumni, and
+        partners to nurture a strong, inclusive community that thrives together.
+      </p>
+    </div>
+    <div class="card">
+      <img src="../static/images/responsibility_04.webp" alt="" />
+      <h3>Supporting the Department</h3>
+      <p>
+        Join hands to strengthen our department by contributing ideas,
+        resources, and expertise to foster innovation and excellence.
+      </p>
+    </div>
+  </div>
+</div>
 
-{% block body %}
-<h1 class="text-center">
-    The university alumni association
-</h1>
-{% for job in jobs %}
+<div class="mission">
+  <h1>Our Mission</h1>
+  <div class="mission-content">
+  <img src="../static/images/comp lab.jpg" alt="mission image">
+  <p>
+    Our mission is to establish a dynamic and inclusive
+    platform that bridges the gap between students, alumni, and faculty within
+    our community. We aim to inspire and empower through mentorship, create
+    opportunities for growth and development, and provide access to resources
+    such as scholarships, job placements, and learning materials. By fostering
+    collaboration and engagement, we strive to build a supportive environment
+    where knowledge is shared, careers are shaped, and the future of our
+    community is strengthened. Together, we are committed to driving innovation,
+    creating meaningful connections, and ensuring the success of every member of
+    our network. <br>
+    <a href=""><button>More About Us</button></a>
+  </p>
+</div>
+</div>
 
-<h1> {{ job.title }} </h1>
-<p>
-    {{ job.body }}
-</p>
+<div class="stats">
+  <div class="members">
+    <img src="../static/images/man.png" alt="">
+    <div>
+      <h1> 0 </h1>
+      <p>Members</p>
+    </div>
+  </div>
 
-<section>
-    {{ job.location }}
-</section>
-<p>
-    {{ job.job_type }}
-</p>
+  <div class="members">
+    <img src="../static/images/scholarship.png" alt="">
+    <div>
+      <h1> 0 </h1>
+      <p>scholarships</p>
+    </div>
+  </div>
 
-<img src="{{ job.image }}" alt="an image here">
-<a href= {{job.link}} >see more</a>
 
-{% endfor %}
+  <div class="members">
+    <img src="../static/images/event-list.png" alt="">
+    <div>
+      <h1> 0 </h1>
+      <p>Events</p>
+    </div>
+  </div>
 
-{% endblock %}
+
+  <div class="members">
+    <img src="../static/images/award.png" alt="">
+    <div>
+      <h1> 0 </h1>
+      <p>Awards</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="jobs">
+  <h1 style="text-align: center;"> Recent Jobs </h1>
+
+  <div>
+    {% for job in jobs %}
+    {% if jobs %}
+    <div class="recent-jobs">
+      <img src="{{ job.image }}" alt="an image here" />
+      <h1>{{ job.title }}</h1> 
+      <p>{{ job.body }}</p>
+      <section><img src="../static/images/location.png" alt="">{{ job.location }}</section>
+      <p> {{ job.job_type }} </p>
+      <a href="https://{{job.link}}"> <button> Apply Now </button> </a>
+    </div>
+  </div>
+</div>
+
+{% else %}
+<h1 style="text-align: center; color: #12bb32;"> No Recent Jobs. Please check again later </h1>
+
+{% endif %}
+{% endfor %} {% endblock %}

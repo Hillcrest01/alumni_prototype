@@ -217,7 +217,7 @@ def edit_scholarship(scholarship_id):
             flash('scholarship not updated, pleas try again')
             print('scholarship not updated!')
 
-        return render_template('edit_scholarship.html' , form = form)
+    return render_template('edit_scholarship.html' , form = form)
 
 @admin.route('/delete_scholarship/<int:scholarship_id>' , methods = ['POST' , 'GET'])
 def delete_scholarship(scholarship_id):
@@ -344,7 +344,7 @@ def edit_blog(blog_id):
             flash('blog not updated, pleas try again')
             print('blog not updated!')
 
-        return render_template('edit_blog.html' , form = form)
+    return render_template('edit_blog.html' , form = form)
 
 @admin.route('/delete_blog/<int:blog_id>' , methods = ['POST' , 'GET'])
 def delete_blog(blog_id):
