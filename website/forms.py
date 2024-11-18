@@ -60,7 +60,7 @@ class FilesForm(FlaskForm):
 class GalleryForm(FlaskForm):
     image = FileField("Add the images")
     add_image = SubmitField('Add Image')
-
+ 
 
 class BlogForm(FlaskForm):
     title = StringField("Enter the blog title" , validators=[DataRequired()])

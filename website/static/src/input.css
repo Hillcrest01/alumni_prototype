@@ -1,2 +1,247 @@
+/* General body styles */
+body {
+    position: relative;
+    color: #ffffff;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: #212121;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body takes the full viewport height */
+}
+button:hover{
+    background-color: antiquewhite;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover{
+    color: #FFD700;
+    transition: 0.5s ease-in-out;
+}
+/* Sticky Navbar */
+nav {
+    background-color: #ffffff;
+    color: #212121;
+    height: 60px;
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0; /* Sticks the navbar at the top */
+    z-index: 10; /* Ensures it stays above other elements */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+}
+.logo{
+    height: 60px;
+    margin-left: 30px;
+}
+/* Navbar List */
+nav ul {
+    display: flex;
+    gap: 20px;
+    justify-content: right;
+}
 
+nav ul li {
+    list-style-type: none;
+    font-size: 18px;
+}
 
+.get-started{
+    color: #212121;
+    background-color: #FFD700;
+    border: none;
+    margin-right: 10px;
+    height: 40px;
+    width: 150px;
+    margin-top: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    font-family: 'Poppins' , sans-serif;
+}
+.get-started:hover{
+    background-color: #8a76061a;
+}
+
+/* Footer */
+footer {
+    color: #FFD700;
+    width: 100%;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto; /* Pushes the footer to the bottom */
+    background-color: #212121; /* Ensures the footer has a defined background */
+}
+
+footer ul li {
+    list-style-type: none;
+}
+
+/* Footer Copyright */
+.copyright {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Hero section styles starts here */
+.homepage{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    margin-left: 60px;
+}
+.hero-main{
+    margin-top: 100px;
+}
+.proud{
+    font-size: 90px;
+    font-weight: bold;
+}
+.students{
+    font-size: 40px;
+}
+.jobs-link{
+    color: #212121;
+    background-color: #12bb32;
+    border: none;
+    margin-right: 10px;
+    height: 50px;
+    width: 180px;
+    margin-top: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    font-family: 'Poppins' , sans-serif;
+}
+.alumni-connect{
+    color: #212121;
+    background-color: #FFD700;
+    border: none;
+    margin-right: 10px;
+    height: 50px;
+    width: 180px;
+    margin-top: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    font-family: 'Poppins' , sans-serif;
+}
+.quick-links{
+    margin-top: 40px;
+}
+.quick-links p{
+    font-size: 20px;
+    width: 95%;
+}
+.hero img{
+    position: relative;
+    height: 70vh;
+    width: 60%;
+    margin-top: 30px;
+}
+/* the end of hero section styles */
+/* styles for responsibilities starts here */
+.responsibility{
+    background-color: #ECF1F5;
+    color: #212221;
+    padding-left: 30px;
+}
+.responsibility h1{
+    text-align: center;
+}
+.roles{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.card{
+    border-radius: 10px;
+    padding: 10px;
+    width: 270px;
+}
+.card img{
+    width: 60px;
+    height: 60px;
+    border-radius: 150%;
+}
+
+/* responsibility ends here.... */
+
+/* mission starts here */
+.mission{
+    background-color: #ECF1F5;
+    color: #212121;
+    padding-bottom: 40px;
+}
+.mission h1{
+    text-align: center;
+    font-size: 40px;
+}
+.mission-content{
+
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    gap: 40px;
+}
+.mission-content img{
+    width: 600px;
+    border-radius: 10px;
+}
+.mission-content button{
+    background-color: #12bb32;
+    height: 50px;
+    width: 160px;
+    border: none;
+    margin-top: 40px;
+    border-radius: 10px;
+    justify-content: right;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    font-family: 'Poppins' , sans-serif;
+}
+.mission-content button:hover{
+    background-color: wheat;
+    transition: 0.5s ease-in-out;
+}
+/* 
+mission ends here */
+
+/* stats starts here */
+.stats{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #161F37;
+}
+
+.members{
+    display: flex;
+    gap: 10px;
+}
+.members img{
+    margin-top: 40px;
+    height: 70px;
+    width: 70px;
+    align-items: center;
+}
+/* end of stats styles */
+
+/* beginning of recent jobs styles */
+.jobs{
+    background-color: #ffff;
+    color: #212121;
+
+}
+
+.recent-jobs{
+    background-color: #12bb32;
+    display: flex;
+    justify-content: space-between;
+}

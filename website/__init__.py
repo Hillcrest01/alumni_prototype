@@ -13,11 +13,13 @@ def create_app():
     from .views import views
     from .auth import auth
     from .admin import admin
+    from .alumni import alumni
 
 
     app.register_blueprint(views, url_prefix = '/')
     app.register_blueprint(auth, url_prefix = '/')
     app.register_blueprint(admin, url_prefix = '/')
+    app.register_blueprint(alumni, url_prefix = '/')
 
 
     with app.app_context():

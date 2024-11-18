@@ -42,6 +42,7 @@ class Scholarships(db.Model):
 
 class Files(db.Model):
     id = db.Column(db.Integer, primary_key = True)
+    title = db.Column(db.Integer, nullable = False)
     link = db.Column(db.String(100) , nullable = False)
     image = db.Column(db.String(1000) , nullable = False)
 
