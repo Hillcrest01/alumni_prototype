@@ -6,7 +6,8 @@ views = Blueprint('views' , __name__)
 @views.route('/', methods = ['POST' , 'GET'])
 def home():
     jobs = Jobs.query.all()
-    return render_template('home.html' , jobs = jobs)
+    events = Events.query.all()
+    return render_template('home.html' , jobs = jobs, events = events)
 
 @views.route('/jobs')
 def jobs():

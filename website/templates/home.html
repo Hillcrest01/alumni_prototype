@@ -72,79 +72,114 @@
 <div class="mission">
   <h1>Our Mission</h1>
   <div class="mission-content">
-  <img src="../static/images/comp lab.jpg" alt="mission image">
-  <p>
-    Our mission is to establish a dynamic and inclusive
-    platform that bridges the gap between students, alumni, and faculty within
-    our community. We aim to inspire and empower through mentorship, create
-    opportunities for growth and development, and provide access to resources
-    such as scholarships, job placements, and learning materials. By fostering
-    collaboration and engagement, we strive to build a supportive environment
-    where knowledge is shared, careers are shaped, and the future of our
-    community is strengthened. Together, we are committed to driving innovation,
-    creating meaningful connections, and ensuring the success of every member of
-    our network. <br>
-    <a href=""><button>More About Us</button></a>
-  </p>
-</div>
+    <img src="../static/images/comp lab.jpg" alt="mission image" />
+    <p>
+      Our mission is to establish a dynamic and inclusive platform that bridges
+      the gap between students, alumni, and faculty within our community. We aim
+      to inspire and empower through mentorship, create opportunities for growth
+      and development, and provide access to resources such as scholarships, job
+      placements, and learning materials. By fostering collaboration and
+      engagement, we strive to build a supportive environment where knowledge is
+      shared, careers are shaped, and the future of our community is
+      strengthened. Together, we are committed to driving innovation, creating
+      meaningful connections, and ensuring the success of every member of our
+      network. <br />
+      <a href=""><button>More About Us</button></a>
+    </p>
+  </div>
 </div>
 
 <div class="stats">
   <div class="members">
-    <img src="../static/images/man.png" alt="">
+    <img src="../static/images/man.png" alt="" />
     <div>
-      <h1> 0 </h1>
+      <h1>0</h1>
       <p>Members</p>
     </div>
   </div>
 
   <div class="members">
-    <img src="../static/images/scholarship.png" alt="">
+    <img src="../static/images/scholarship.png" alt="" />
     <div>
-      <h1> 0 </h1>
+      <h1>0</h1>
       <p>scholarships</p>
     </div>
   </div>
 
-
   <div class="members">
-    <img src="../static/images/event-list.png" alt="">
+    <img src="../static/images/event-list.png" alt="" />
     <div>
-      <h1> 0 </h1>
+      <h1>0</h1>
       <p>Events</p>
     </div>
   </div>
 
-
   <div class="members">
-    <img src="../static/images/award.png" alt="">
+    <img src="../static/images/award.png" alt="" />
     <div>
-      <h1> 0 </h1>
+      <h1>0</h1>
       <p>Awards</p>
     </div>
   </div>
-
 </div>
 
-<div class="jobs">
-  <h1 style="text-align: center;"> Recent Jobs </h1>
 
-  <div>
-    {% for job in jobs %}
-    {% if jobs %}
+<div style="background-color: #ECF1F5; color: #212121;">
+  <h1 style="text-align: center;" > Recent Jobs </h1>
+<div class="jobs">
+  {% for job in jobs %}
     <div class="recent-jobs">
       <img src="{{ job.image }}" alt="an image here" />
-      <h1>{{ job.title }}</h1> 
+      <h1>{{ job.title }}</h1>
       <p>{{ job.body }}</p>
-      <section><img src="../static/images/location.png" alt="">{{ job.location }}</section>
-      <p> {{ job.job_type }} </p>
-      <a href="https://{{job.link}}"> <button> Apply Now </button> </a>
+      <section>
+        <img src="../static/images/location.png" alt="" />{{ job.location }}
+      </section>
+      <p>{{ job.job_type }}</p>
+      <a href="https://{{job.link}}"> <button>Apply Now</button> </a>
     </div>
-  </div>
+{% endfor %} 
+</div>
+<div class="view-all-jobs">
+  <a href="/jobs"><button > View All Jobs </button></a>
+</div>
 </div>
 
-{% else %}
-<h1 style="text-align: center; color: #12bb32;"> No Recent Jobs. Please check again later </h1>
+<!-- events starts here -->
+<div style="background-color: #161F37; color: #ffffff;">
+  <h1 style="text-align: center;" > Upcoming Events </h1>
+<div class="events">
+  {% for event in events %}
+    <div class="recent-events">
+      <img src="{{event.image }}" alt="an image here" />
+      <h1>{{event.title }}</h1>
+      <p>{{event.body }}</p>
+      <section>
+        <img src="../static/images/location.png" alt="" />{{event.location }}
+      </section>
+      <a href="https://{{event.link}}"> <button> Join Event </button> </a>
+    </div>
+{% endfor %} 
+</div>
+<div class="view-all-events">
+  <a href="/event"><button > View All Events </button></a>
+</div>
+</div>
 
-{% endif %}
-{% endfor %} {% endblock %}
+<div class="newsletter">
+  <h1>
+    Don’t Miss Awesome Stories From Our Alumni
+  </h1>
+  <p>Join Our Newsletter Today to keep on receiving the updates</p>
+  <input type="email" name="email" placeholder="enter your email address here" id="">
+  <br>
+  <a href="/"><button>submit</button></a>
+</div>
+
+
+<div class="mini-gallery">
+  <img src="../static/images/homepage.jpg" alt="">
+  <img src="../static/images/upcoming_event.jpg" alt="">
+  <img src="../static/images/comp lab.jpg" alt="">
+</div>
+{% endblock %}
