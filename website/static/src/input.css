@@ -157,7 +157,7 @@ footer ul li {
 /* styles for responsibilities starts here */
 .responsibility{
     background-color: #ECF1F5;
-    color: #212221;
+    color: #212121;
     padding-left: 30px;
 }
 .responsibility h1{
@@ -457,4 +457,95 @@ mission ends here */
 .mini-gallery img{
     height: 400px;
     height: 400px;
+}
+
+
+/* Authorization styling */
+
+/* Base CSS for signup.html and login.html */
+.container{
+    background-color: #cccfd1;
+    color: #212121;
+    margin: 0;
+    padding: 0;
+}
+
+.container h1 {
+    text-align: center;
+    color: #212121;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* General button styles */
+input[type="submit"], .btn {
+    background-color: #FFD700;
+    color: #212121;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+}
+
+button:hover, input[type="submit"]:hover, .btn:hover {
+    background-color: #ccc;
+    transition-duration: 0.5s;
+}
+
+
+.container p {
+    text-align: center;
+}
+
+.container p a {
+    color: #12bb32;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container p a:hover {
+    text-decoration: underline;
+}
+
+/* Additional utility styling */
+.container {
+    margin-top: 50px;
+    text-align: center;
+}
+input:focus, textarea:focus, select:focus, button:focus {
+    outline: none; /* Removes the outline */
+    border: none; /* Removes the border */
 }

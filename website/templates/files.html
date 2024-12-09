@@ -1,1 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
+
+{% block title %} learning {% endblock title %}
+
+{% block body %}
+
+<h1 style="text-align: center;">Welcome to Learning Section, <br> expland your knowledge with our resources!</h1>
+
+<div class="events">
+  {% for file in files %}
+
+  <div class="recent-events">
+    <h1 style="color: #212121">{{file.title }}</h1>
+    <img src="{{file.image }}" alt="a file image here" />
+    <a href="https://{{file.link}}"> <button>View Files</button> </a>
+  </div>
+
+  {% endfor %}
+</div>
+
+{% endblock body %}

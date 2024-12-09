@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} jobs {% endblock title %}
+
+{% block body %}
+
+<h1 style="text-align: center;">Here are the jobs that you can apply </h1>
+
+
+<div class="jobs">
+    {% for job in jobs %}
+      <div class="recent-jobs">
+        <img src="{{ job.image }}" alt="an image here" />
+        <h1>{{ job.title }}</h1>
+        <p>{{ job.body }}</p>
+        <section>
+          <img src="../static/images/location.png" alt="" />{{ job.location }}
+        </section>
+        <p>{{ job.job_type }}</p>
+        <a href="https://{{job.link}}"> <button>Apply Now</button> </a>
+      </div>
+  {% endfor %} 
+
+
+{% endblock body %}
