@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} events {% endblock title %}
+{% block body %}
+<h1 style="text-align: center;">
+    Here are the upcoming events
+</h1>
+<h2 style="text-align: center;">
+    Apply to be part of the great events!
+</h2>
+<div class="events">
+    {% for event in events %}
+      <div class="recent-events">
+        <img src="{{event.image }}" alt="an image here" />
+        <h1>{{event.title }}</h1>
+        <p>{{event.body }}</p>
+        <section>
+          <img src="../static/images/location.png" alt="" />{{event.location }}
+        </section>
+        <a href="https://{{event.link}}"> <button> Join Event </button> </a>
+      </div>
+  {% endfor %} 
+  </div>
+
+{% endblock body %}
