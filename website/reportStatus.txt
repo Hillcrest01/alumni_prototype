@@ -1,0 +1,21 @@
+As at 26th January 2025;
+The following have been accomplished in the prototype phase;
+1. All views
+2. Admin functionalities
+3. All stylings except for responsiveness
+4. Authorization have been started
+
+**WHAT SHOULD BE DONE**
+1. Complete Authorization, Authorization tokens, forgot password
+2. Add the Alumni Connect part and ensure it is working as this is the backbone of the project.
+3. Email functionality, verification and newsletter subscription. 
+4. Chat Application for alumni to connect with the students.
+5. Admin verification of all posts made by the student i.e. jobs and internships, events and scholarships.
+6. Add announcements functionality such that an announcement made by the admin can be seen by everyone
+7. Add diagrams and complete all documents.
+
+**26th January 2025**
+1. Complete all documents  --> DONE
+
+**27th January 2025**
+1. Complete Authorization -->DONE
