@@ -19,3 +19,14 @@ The following have been accomplished in the prototype phase;
 
 **27th January 2025**
 1. Complete Authorization -->DONE
+
+AS AT 27TH JANUARY 2025
+Research and do the reg number validation.
+Year of study validtion is done.
+LoginManager bug fixed.
+
+**28TH JANUARY 2025**
+1. DEAL WITH CHAT IMPLEMENTATION
+
+**29TH JANUARY 2025**
+1. EMAIL FUNCTIONALITY

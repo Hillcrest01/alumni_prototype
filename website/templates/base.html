@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for('static',filename='src/input.css')}}">
+    <link rel="icon" href="{{url_for('static' , filename='images/logo_to_use.png')}}">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Alumni | {% block title %} {% endblock title %} </title>
 </head>
@@ -15,9 +16,26 @@
             <li><a href="/files">Learning</a></li>
             <li><a href="/events">Events</a></li>
             <li><a href="/scholarships">scholarships</a></li>
-             <a  href="/signup"><button class="get-started">Get Started</button></a> </button>
+            {% if current_user.is_authenticated %}
+             <a  href="/profile"><button class="get-started"> My Dashboard </button></a>
+
+             {% else %}
+             <a  href="/signup"><button class="get-started"> Get Started </button></a>
+
+             {% endif %}
         </ul>
     </nav>
+    {% with messages = get_flashed_messages(with_categories = True) %}
+       {% if messages %}
+          <div class="flash-messages">
+             {% for category, message in messages %}
+               <div class="flash flash-{{category}}"> {{ message }} </div>
+             {% endfor %}
+               </div>
+        {% endif %}
+    {% endwith %}
+
+
     {% block body %}
     {% endblock body %}
 
@@ -50,5 +68,16 @@
     <section class="copyright">
         &copy; 2024 Egerton University Computer Science Department
     </section>
+    <script>
+        // Example: Automatically fade out flash messages after 5 seconds
+        setTimeout(() => {
+            const flashMessages = document.querySelectorAll('.flash-messages .flash');
+            flashMessages.forEach(flash => {
+                flash.style.transition = 'opacity 1s ease';
+                flash.style.opacity = '0';
+                setTimeout(() => flash.remove(), 5000); // Remove after fade-out
+            });
+        }, 5000); // 5-second delay
+    </script>
 </body>
 </html>

@@ -33,6 +33,8 @@ def create_app():
         print("database created successfully")
     return app
 
+
+#This part is essential in utilizing LoginManager
 @login_manager.user_loader
 def load_user(user_id):
     from .models import User
