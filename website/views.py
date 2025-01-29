@@ -38,3 +38,7 @@ def gallery():
 def blogs():
     blogs = Blog.query.all()
     return render_template('blog.html' , blogs = blogs)
+
+@views.route('/profile')
+def profile():
+    return render_template('profile.html')
