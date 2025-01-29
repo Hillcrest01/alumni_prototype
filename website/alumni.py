@@ -1,4 +1,4 @@
-from flask import Blueprint, url_for, render_template, redirect
+from flask import Blueprint, render_template
 
 alumni = Blueprint('alumni' , __name__)
 
@@ -6,7 +6,3 @@ alumni = Blueprint('alumni' , __name__)
 @alumni.route('/alumni')
 def alumni_home():
     return render_template('alumni.html')
-
-@alumni.route("/class_of")
-def class_of():
-    pass
