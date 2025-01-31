@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template
-from .models import Jobs, Events, Scholarships, Files, Gallery, Blog
+from flask import Blueprint, render_template, session
+from .models import Jobs, Events, Scholarships, Files, Gallery, Blog,User
+from flask_login import login_required, current_user
 
 views = Blueprint('views' , __name__)
 
@@ -40,5 +41,13 @@ def blogs():
     return render_template('blog.html' , blogs = blogs)
 
 @views.route('/profile')
+@login_required
 def profile():
-    return render_template('profile.html')
+    user_id = session.get('user_id')
+    user = User.query.get(user_id)
+    return render_template('profile.html' , user = current_user)
+
+@views.route('/download_report')
+@login_required
+def download_report():
+    return render_template('download_report.html')

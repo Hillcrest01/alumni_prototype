@@ -578,3 +578,84 @@ input:focus, textarea:focus, select:focus, button:focus {
 .flash-error {
     background-color: #f44336; /* Red */
 }
+
+/* Profile Styles */
+.main {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+.sidebar {
+    width: 250px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    color: #212121;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+.sidebar li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+.sidebar li:hover {
+    background: #e9ecef;
+}
+.main-content {
+    flex-grow: 1;
+    background: #161F37;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.content-section{
+    background-color: #161F37;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/*Personal details styling*/
+.card {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    font-size: 22px;
+    font-weight: bold;
+    background: #FFD700;
+    color: #212121;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+    padding: 20px;
+    color: #212121;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.info-item i {
+    font-size: 20px;
+    color: #007bff;
+}
