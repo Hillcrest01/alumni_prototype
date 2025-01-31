@@ -43,7 +43,7 @@ def sign_up():
                 flash("Account created successfully" , "success")
                 login_user(new_user, remember=True)
                 print("new user added to database")
-                return redirect(url_for('auth.login'))
+                return redirect(url_for('views.home'))
 
 
 
@@ -83,7 +83,3 @@ def logout():
     logout_user()
     flash("you have successfully logged out", "success")
     return redirect(url_for('views.home'))
-
-@auth.route('/profile')
-def profile():
-    return render_template('profile.html')
