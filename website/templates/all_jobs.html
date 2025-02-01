@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Manage Jobs{% endblock %}
+{% block body %}
+
+<h2>Manage Jobs</h2>
+
+<a href="{{ url_for('admin.add_job') }}"><button class="all-jobs-button">Add Job</button></a>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Job Type</th>
+            <th>Job Link</th>
+            <th>Job Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in all_jobs %}
+        <tr>
+            <td>{{ job.id }}</td>
+            <td>{{ job.title }}</td>
+            <td>{{ job.body }}</td>
+            <td>{{ job.location }}</td>
+            <td> {{ job.job_type }} </td>
+            <td> {{ job.link }} </td>
+            <td> {{ job.image }} </td>
+            <td>
+                <a>Edit</a>
+                <button>Delete</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    function confirmDelete(url) {
+        if (confirm("Are you sure you want to delete this item?")) {
+            window.location.href = url;
+        }
+    }
+</script>
+
+{% endblock %}

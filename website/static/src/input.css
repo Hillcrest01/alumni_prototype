@@ -69,6 +69,16 @@ nav ul li {
     transition:  0.5s ease-in-out;
 }
 
+
+/*Addition pages was added to make the color of the adding and editing all features in this system black*/
+.addition_pages{
+    color: blue;
+    margin-bottom: 30px;
+}
+.addition-pages{
+    color: blue;
+    margin-bottom: 30px;
+}
 /* Footer */
 footer {
     background-color: #ECF1F5;
@@ -619,11 +629,11 @@ input:focus, textarea:focus, select:focus, button:focus {
 }
 
 /*Personal details styling*/
-.card {
+.card-personal {
     max-width: 500px;
     margin: auto;
     padding: 20px;
-    background: white;
+    background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -660,4 +670,41 @@ input:focus, textarea:focus, select:focus, button:focus {
     color: #007bff;
 }
 
-/*change password styles *?
+/*change password styles */
+
+/* table styles */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
+.all-jobs-button {
+    background: #FFD700;
+    color: black;
+    font-size: large;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    margin-left: 600px;
+    border-radius: 10px;
+}
+
+.all-jobs-button:hover {
+    background: #F3F1E6;
+}
