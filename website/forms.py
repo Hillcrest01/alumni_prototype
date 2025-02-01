@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, EmailField, IntegerField, PasswordField, SelectField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, EqualTo
 from flask_wtf.file import FileField, FileRequired
 
 
@@ -67,5 +67,11 @@ class BlogForm(FlaskForm):
     body = StringField("Enter your blog content")
     image = FileField("Add an image for the blog" , validators=[FileRequired()])
     add_blog = SubmitField("Add Blog")
+
+class ChangePasswordForm(FlaskForm):
+    current_password = PasswordField("Current Password" , validators= [DataRequired()])
+    new_password = PasswordField("New Password" , validators=[DataRequired()])
+    confirm_password = PasswordField("Confirm New Password" , validators=[DataRequired(), EqualTo('new_password' , message='passwords do not match!')])
+    submit = SubmitField('Change Password')
 
 

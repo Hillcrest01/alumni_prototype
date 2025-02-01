@@ -6,7 +6,7 @@ body %}
     <ul>
       <li onclick="showSection('personal-details')">Personal Details</li>
       <li onclick="showSection('chats')">Chats</li>
-      <li onclick="showSection('change-password')">Change Password</li>
+      <li><a href="{{ url_for('auth.change_password') }}">Change Password</a></li>
       <li onclick="showSection('jobs-applied')">Jobs Applied</li>
       <li onclick="showSection('events-applied')">Events Applied</li>
       <li>
@@ -25,23 +25,23 @@ body %}
         <div class="user-info">
           <div class="info-item">
             <i class="fas fa-id-card"></i>
-            <span><strong>Reg No:</strong> {{ user.regno }}</span>
+            <span><strong>Reg No:</strong> {{ current_user.regno }}</span>
           </div>
           <div class="info-item">
             <i class="fas fa-graduation-cap"></i>
             <span
-              ><strong>Year of Study:</strong> {{ user.year_of_study }}</span
+              ><strong>Year of Study:</strong> {{ current_user.year_of_study }}</span
             >
           </div>
           <div class="info-item">
             <i class="fas fa-envelope"></i>
-            <span><strong>Email:</strong> {{ user.email_address }}</span>
+            <span><strong>Email:</strong> {{ current_user.email_address }}</span>
           </div>
           <div class="info-item">
             <i class="fas fa-calendar-alt"></i>
             <span
               ><strong>Date Joined:</strong> {{
-              user.date_joined.strftime('%Y-%m-%d') }}</span
+              current_user.date_joined.strftime('%Y-%m-%d') }}</span
             >
           </div>
         </div>

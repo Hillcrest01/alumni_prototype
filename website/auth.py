@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from . import db
 from .models import User
-from .forms import SignUpForm, LoginForm
+from .forms import SignUpForm, LoginForm, ChangePasswordForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -41,9 +41,8 @@ def sign_up():
                 db.session.add(new_user)
                 db.session.commit()
                 flash("Account created successfully" , "success")
-                login_user(new_user, remember=True)
                 print("new user added to database")
-                return redirect(url_for('views.home'))
+                return redirect(url_for('auth.login'))
 
 
 
@@ -64,7 +63,7 @@ def login():
                 flash("login successful" , "success")
                 print("successful")
                 login_user(new_user, remember=True)
-                return redirect(url_for('views.home'))
+                return redirect(url_for('views.profile'))
             
             else:
                 flash('incorrect password' , "error")
@@ -75,6 +74,27 @@ def login():
             print('no reg number linked')
 
     return render_template('login.html' , form = form , new_user = current_user)
+
+
+@auth.route('/change_password' , methods = ['POST' , 'GET'])
+@login_required
+
+def change_password():
+     form = ChangePasswordForm()
+     if form.validate_on_submit():
+          if not current_user.check_password(form.current_password.data):
+               flash("Current password is incorrect" , "error")
+          else:
+               current_user.set_password(form.new_password.data)
+               db.session.commit()
+               flash("Your password has been updated" , "success")
+               return redirect(url_for('views.profile'))
+    
+
+     return render_template("change_password.html" , form = form)
+
+               
+        
 
 
 @auth.route('/logout')
