@@ -1,15 +1,48 @@
 from flask import Blueprint, request, render_template, redirect, url_for, send_from_directory, flash, get_flashed_messages
 from . import db
-from .models import Jobs, Events, Scholarships, Files, Gallery, Blog
+from .models import Jobs, Events, Scholarships, Files, Gallery, Blog, User
 from .forms import JobsForm, ScholarshipForm, EventForm, FilesForm, BlogForm, GalleryForm
 from werkzeug.utils import secure_filename #used when dealing with images
 
 admin = Blueprint('admin' , __name__)
 
-@admin.route('/admin_page')
+@admin.route('/admin')
 def admin_page():
     return render_template('admin_page.html')
 
+
+#main admin cards to access the whole system
+
+@admin.route("/view_users")
+def all_users():
+    all_users = User.query.all()
+    return render_template("all_users.html" , all_users = all_users)
+
+@admin.route('/view_jobs')
+def all_jobs():
+    all_jobs = Jobs.query.all()
+    return render_template("all_jobs.html" , all_jobs = all_jobs)
+
+
+@admin.route("/view_events")
+def all_events():
+    all_events = Events.query.all()
+    return render_template("all_events.html" , all_events = all_events)
+
+@admin.route("/view_scholarships")
+def all_scholarships():
+    all_scholarships = Scholarships.query.all()
+    return render_template("all_scholarships.html" , all_scholarships = all_scholarships)
+
+@admin.route("view_files")
+def all_files():
+    all_files = Files.query.all()
+    return render_template("all_files.html", all_files = all_files)
+
+@admin.route("/view_gallery")
+def all_gallery():
+    all_gallery = Gallery.query.all()
+    return render_template("all_gallery.html" , all_gallery = all_gallery)
 
 
 #to deal with images, we define a route where the images will be stored.
@@ -37,9 +70,9 @@ def add_job():
             new_job = Jobs(title = title , body = body , location = location , job_type = job_type, link = link, image = file_path)
             db.session.add(new_job)
             db.session.commit()
-            flash('job added successfully')
+            flash('job added successfully' , "success")
             print('successfully added the job')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('admin.all_jobs'))
 
         else:
             flash('job not added, please try again')
