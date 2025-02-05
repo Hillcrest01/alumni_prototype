@@ -463,10 +463,14 @@ mission ends here */
 
 .mini-gallery{
     display: flex;
+    justify-content: space-around;
+    background-color: #ECF1F5;
 }
 .mini-gallery img{
     height: 400px;
     height: 400px;
+    border-radius: 30px;
+    padding: 10px;
 }
 
 
@@ -673,22 +677,29 @@ input:focus, textarea:focus, select:focus, button:focus {
 /*change password styles */
 
 /* table styles */
-
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    table-layout: fixed; /* Ensures columns distribute evenly */
 }
 
 table, th, td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
+    word-wrap: break-word; /* Allows text to break into the next line */
+    overflow-wrap: break-word;
 }
 
 th {
     background: #007bff;
     color: white;
+}
+
+td {
+    max-width: 200px; /* Prevents columns from stretching too much */
+    white-space: normal; /* Allows text to wrap */
 }
 
 .all-jobs-button {
