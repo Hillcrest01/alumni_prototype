@@ -25,7 +25,7 @@ def sign_up():
             print("Email Already exists")
         
         elif password1 != password2:
-            flash("passwords do not match" , "error")
+            flash("the passwords do not match" , "error")
             print("Wrong Password")
 
 
