@@ -1,3 +1,32 @@
 {% extends 'base.html' %}
+{% block title %} all users {% endblock %}
 
+{% block body %}
 
+<div class="users-table">
+    <h1 style="color: #212121">All Users</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Reg No</th>
+                <th>Year of Study</th>
+                <th>Email Address</th>
+                <th>Date Joined</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in all_users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.regno }}</td>
+                <td>{{ user.year_of_study }}</td>
+                <td>{{ user.email_address }}</td>
+                <td>{{ user.date_joined.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock body %}

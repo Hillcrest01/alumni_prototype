@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} gallery {% endblock title %}
+
+{% block body %}
+<h1 style="text-align: center;">
+    Here are the happy moments
+</h1>
+<h2 style="text-align: center;">
+    Appreciating and celebrating many departmental achievements!
+</h2>
+<div class="events">
+    {% for image in images %}
+      <div class="">
+        <img style="max-width: 400px;" src="{{image.image }}" alt="an image here" />
+      </div>
+  {% endfor %} 
+  </div>
+
+
+
+{% endblock body %}
