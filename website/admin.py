@@ -1,6 +1,6 @@
 from flask import Blueprint, request, render_template, redirect, url_for, send_from_directory, flash, get_flashed_messages
 from . import db
-from .models import Jobs, Events, Scholarships, Files, Gallery, Blog, User
+from .models import Jobs, Events, Scholarships, Files, Gallery, Blog, User, Messages
 from .forms import JobsForm, ScholarshipForm, EventForm, FilesForm, BlogForm, GalleryForm
 from werkzeug.utils import secure_filename #used when dealing with images
 
@@ -43,6 +43,11 @@ def all_files():
 def all_gallery():
     all_gallery = Gallery.query.all()
     return render_template("all_gallery.html" , all_gallery = all_gallery)
+
+@admin.route('/view_messages')
+def all_messages():
+    messages = Messages.query.all()
+    return render_template('all_messages.html', messages=messages)
 
 
 #to deal with images, we define a route where the images will be stored.
@@ -421,6 +426,27 @@ def delete_gallery(gallery_id):
     flash('gallery deleted successfully!' , "success")
     print("gallery deleted!")
     return redirect(url_for('admin.all_gallery'))
+
+
+@admin.route('/submit_message', methods=['POST'])
+def submit_message():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        message = request.form.get('message')
+
+        if not name or not email or not message:
+            flash('All fields are required!', 'error')
+            return redirect(url_for('views.contact'))
+
+        new_message = Messages(name=name, email=email, message=message)
+        db.session.add(new_message)
+        db.session.commit()
+
+        flash('Your message has been sent successfully!', 'success')
+        return redirect(url_for('views.contact'))
+
+    return redirect(url_for('home'))
 
 
 

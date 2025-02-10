@@ -8,7 +8,12 @@ views = Blueprint('views' , __name__)
 def home():
     jobs = Jobs.query.all()
     events = Events.query.all()
-    return render_template('home.html' , jobs = jobs, events = events)
+    members = User.query.count()
+    event = Events.query.count()
+    internship = Jobs.query.count()
+    scholarship = Scholarships.query.count()
+
+    return render_template('home.html' , jobs = jobs, events = events, members = members, event = event, scholarship=scholarship, internship = internship)
 
 @views.route('/jobs')
 def jobs():
@@ -51,3 +56,11 @@ def profile():
 @login_required
 def download_report():
     return render_template('download_report.html')
+
+@views.route('/about')
+def about():
+    return render_template('about.html')
+
+@views.route('/contact')
+def contact():
+    return render_template('contact.html')
