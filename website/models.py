@@ -62,3 +62,11 @@ class Blog(db.Model):
     title = db.Column(db.String(100))
     body = db.Column(db.String(1000))
     image = db.Column(db.String(1000))
+
+
+class Messages(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    message = db.Column(db.Text, nullable=False)
+    date_created = db.Column(db.DateTime, default=datetime.utcnow)
