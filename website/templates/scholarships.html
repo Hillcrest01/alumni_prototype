@@ -3,8 +3,26 @@
 
 {% block body %}
 
-
-
+<h1 style="text-align: center;">
+    Here are the upcoming scholarships
+</h1>
+<h2 style="text-align: center;">
+    Apply to be part of the great scholarships before the deadline
+</h2>
+<div class="events">
+    {% for scholarship in scholarships %}
+      <div class="recent-events">
+        <img src="{{scholarship.image }}" alt="an image here" />
+        <h1>{{scholarship.title }}</h1>
+        <p>{{scholarship.body[:100]}}...</p>
+        <section>
+          <img src="../static/images/location.png" alt="" />{{scholarship.country }}
+          <p> {{ scholarship.university }} </p>
+        </section>
+        <a href="https://{{scholarship.link}}" target="_blank"> <button> Apply </button> </a>
+      </div>
+  {% endfor %} 
+</div>
 
 
 {% endblock body %}

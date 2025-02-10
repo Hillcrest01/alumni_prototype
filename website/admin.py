@@ -75,7 +75,7 @@ def add_job():
             return redirect(url_for('admin.all_jobs'))
 
         else:
-            flash('job not added, please try again')
+            flash('job not added, please try again' , "error")
             print('job not added!!')
 
     return render_template('add_job.html' , form = form)
@@ -99,11 +99,12 @@ def edit_job(job_id):
             file.save(file_path)
         Jobs.query.filter_by(id = job_id).update(dict(title = title , body = body , location = location , job_type = job_type, link = link, image = file_path))
         db.session.commit()
-        flash('job successfully updated')
+        flash('job successfully updated' , "success")
         print('job updated successful')
-        return redirect(url_for('views.home'))
+        return redirect(url_for('admin.all_jobs'))
 
     else:
+        flash("job not updated, please try again" , "error")
         print("item not updated")
     
     return render_template('edit_job.html' , form = form)
@@ -114,9 +115,9 @@ def delete_job(job_id):
     job_to_delete = Jobs.query.get(job_id)
     db.session.delete(job_to_delete)
     db.session.commit()
-    flash('job deleted successfully')
+    flash('job deleted successfully' , "success")
     print('successfully deleted job')
-    return redirect(url_for('views.home'))
+    return redirect(url_for('admin.all_jobs'))
 
 #end of jobs, .....
 
@@ -140,12 +141,12 @@ def add_event():
             new_event = Events(title = title , body = body , location = location , link = link, image = file_path)
             db.session.add(new_event)
             db.session.commit()
-            flash('event added successfully')
+            flash('event added successfully' , "success")
             print('successfully added the event')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('admin.all_events'))
 
         else:
-            flash('event not added, please try again')
+            flash('event not added, please try again' , "error")
             print('event not added!!')
 
     return render_template('add_event.html' , form = form)
@@ -153,7 +154,7 @@ def add_event():
 @admin.route('/edit_event/<int:event_id>' , methods = ['POST' , 'GET'])
 def edit_event(event_id):
     event = Events.query.get_or_404(event_id)
-    form = JobsForm(obj = event)
+    form = EventForm(obj = event)
 
     if form.validate_on_submit():
         title = request.form.get("title")
@@ -167,9 +168,9 @@ def edit_event(event_id):
             file.save(file_path)
         Events.query.filter_by(id = event_id).update(dict(title = title , body = body , location = location , link = link, image = file_path))
         db.session.commit()
-        flash('Events successfully updated')
+        flash('Events successfully updated' , "success")
         print('Events updated successful')
-        return redirect(url_for('views.home'))
+        return redirect(url_for('admin.all_events'))
 
     else:
         print("event not updated")
@@ -182,9 +183,9 @@ def delete_event(event_id):
     event_to_delete = Events.query.get(event_id)
     db.session.delete(event_to_delete)
     db.session.commit()
-    flash('event deleted successfully')
+    flash('event deleted successfully' , "success")
     print('event deleted')
-    return redirect(url_for('views.home'))
+    return redirect(url_for('admin.all_events'))
 
 #End of events
 
@@ -210,13 +211,13 @@ def add_scholarship():
             new_scholarship = Scholarships(title = title, body = body, country = country, university = university, link = link, image = file_path)
             db.session.add(new_scholarship)
             db.session.commit()
-            flash('new scholarship added successfully!')
+            flash('new scholarship added successfully!' , "success")
             print('new scholarship added successfully')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('admin.all_scholarships'))
         
         else:
             print('scholarship not added, please try again')
-            flash('scholarship not added, please try again')
+            flash('scholarship not added, please try again' , "error")
 
 
     
@@ -241,9 +242,9 @@ def edit_scholarship(scholarship_id):
             file.save(file_path)
             Scholarships.query.filter_by(id = scholarship_id).update(dict(title = title, body = body, country = country, university = university, link = link, image = file_path))
             db.session.commit()
-            flash('scholarship successfully updated')
+            flash('scholarship successfully updated' , "success")
             print("successfully updated")
-            return redirect(url_for('views.home'))
+            return redirect(url_for('admin.all_scholarships'))
         
 
         else:
@@ -257,9 +258,9 @@ def delete_scholarship(scholarship_id):
     scholarship_to_delete = Scholarships.query.get(scholarship_id)
     db.session.delete(scholarship_to_delete)
     db.session.commit()
-    flash('scholarship deleted successfully')
+    flash('scholarship deleted successfully' , "success")
     print('scholarship deleted')
-    return redirect(url_for('views.home'))
+    return redirect(url_for('admin.all_scholarships'))
 
 
 #learning materials
@@ -278,12 +279,12 @@ def add_file():
             new_file = Files(title = title, link = link, image = file_path)
             db.session.add(new_file)
             db.session.commit()
-            flash('new file added successfully!')
+            flash('new file added successfully!' , "success")
             print('new file added successfully')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('admin.all_files'))
         
         else:
-            print('file not added, please try again')
+            print('file not added, please try again' , "error")
             flash('file not added, please try again')
 
 
@@ -305,25 +306,25 @@ def edit_file(file_id):
             file.save(file_path)
             Files.query.filter_by(id = file_id).update(dict(title = title, link = link, image = file_path))
             db.session.commit()
-            flash('file successfully updated')
+            flash('file successfully updated' , "success")
             print("successfully updated")
-            return redirect(url_for('views.home'))
+            return redirect(url_for('admin.all_files'))
         
 
         else:
-            flash('file not updated, pleas try again')
+            flash('file not updated, pleas try again' , "error")
             print('file not updated!')
 
-        return render_template('edit_file.html' , form = form)
+    return render_template('edit_file.html' , form = form)
 
 @admin.route('/delete_file/<int:file_id>' , methods = ['POST' , 'GET'])
 def delete_file(file_id):
     file_to_delete = Files.query.get(file_id)
     db.session.delete(file_to_delete)
     db.session.commit()
-    flash('file deleted successfully')
+    flash('file deleted successfully' , "success")
     print('file deleted')
-    return redirect(url_for('views.home'))
+    return redirect(url_for('admin.all_files'))
     
 
 #blogs
@@ -388,7 +389,7 @@ def delete_blog(blog_id):
     print('blog deleted')
     return redirect(url_for('views.home'))
 
-@admin.route('/add_gallery')
+@admin.route('/add_gallery' , methods = ['GET' , 'POST'])
 def add_gallery():
     form = GalleryForm()
     if form.validate_on_submit():
@@ -400,13 +401,13 @@ def add_gallery():
             new_gallery = Gallery(image = file_path)
             db.session.add(new_gallery)
             db.session.commit()
-            flash("New gallery added successfully!")
+            flash("New gallery added successfully!" , "success")
             print("new gallery added!")
 
-            return redirect(url_for('views.home'))
+            return redirect(url_for('admin.all_gallery'))
          
          else:
-             flash('gallery not added')
+             flash('gallery not added' , "error")
              print('gallery not added')
 
     
@@ -417,8 +418,9 @@ def delete_gallery(gallery_id):
     gallery_to_delete = Gallery.query.get(gallery_id)
     db.session.delete(gallery_to_delete)
     db.session.commit()
-    flash('gallery deleted successfully!')
+    flash('gallery deleted successfully!' , "success")
     print("gallery deleted!")
+    return redirect(url_for('admin.all_gallery'))
 
 
 

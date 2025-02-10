@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} view scholarships {% endblock title %}
+
+{% block body %}
+<h2>Manage Scholarships</h2>
+
+<a href="{{ url_for('admin.add_scholarship') }}"><button class="all-jobs-button">Add Scholarship</button></a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Country</th>
+            <th>University</th>
+            <th>Link</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for scholarship in all_scholarships %}
+        <tr>
+            <td>{{ scholarship.id }}</td>
+            <td>{{ scholarship.title }}</td>
+            <td>{{ scholarship.body[:100] }}...</td>
+            <td>{{ scholarship.country }}</td>
+            <td>{{ scholarship.university }}</td>
+            <td><a href="https://{{ scholarship.link }}" target="_blank">View</a></td>
+            <td><img src="{{ scholarship.image }}" alt="Scholarship Image" width="50"></td>
+            <td>
+                <button><a href="{{ url_for('admin.edit_scholarship' , scholarship_id=scholarship.id) }}">Edit</a></button>
+                <button onclick="confirmDelete('{{ url_for('admin.delete_scholarship',scholarship_id=scholarship.id) }}')">Delete</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<script>
+    function confirmDelete(deleteUrl) {
+        let confirmation = confirm("Are you sure you want to delete this job?");
+        if (confirmation) {
+            window.location.href = deleteUrl;
+        }
+    }
+    </script>
+
+{% endblock body %}

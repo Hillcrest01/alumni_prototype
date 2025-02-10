@@ -4,10 +4,48 @@
 
 <h2>Admin Dashboard</h2>
 <div class="events">
+
+  <!--all users-->
+    <div class="recent-events">
+      <h1 style="color: #212121"> All Users </h1>
+      <img src="../static/images/responsibility_04.webp" alt="a file image here" />
+      <a href="{{ url_for('admin.all_users') }}"> <button>View Users</button> </a>
+    </div>
+
+  <!--all jobs and internships-->
     <div class="recent-events">
       <h1 style="color: #212121"> All Jobs/Internships </h1>
-      <img src="../static/images/responsibility_04.webp" alt="a file image here" />
+      <img src="../static/images/homepage.jpg" alt="a file image here" />
       <a href="{{ url_for('admin.all_jobs') }}"> <button>View Jobs</button> </a>
+    </div>
+
+    <!--all events-->
+    <div class="recent-events">
+      <h1 style="color: #212121"> All Events </h1>
+      <img src="../static/images/event-list.png" alt="a file image here" />
+      <a href="{{ url_for('admin.all_events') }}"> <button>View Events</button> </a>
+    </div>
+
+    <!--all scholarships-->
+    <div class="recent-events">
+      <h1 style="color: #212121"> All Scholarships </h1>
+      <img src="../static/images/award.png" alt="a file image here" />
+      <a href="{{ url_for('admin.all_scholarships') }}"> <button>View Scholarships</button> </a>
+    </div>
+
+    <!--all files-->
+    <div class="recent-events">
+      <h1 style="color: #212121"> All Files </h1>
+      <img src="../static/images/students inside a lab.jpeg" alt="a file image here" />
+      <a href="{{ url_for('admin.all_files') }}"> <button>View Files</button> </a>
+    </div>
+
+    <!--all gallery-->
+
+    <div class="recent-events">
+      <h1 style="color: #212121"> All Gallery </h1>
+      <img src="../static/images/upcoming_event.jpg" alt="a file image here" />
+      <a href="{{ url_for('admin.all_gallery') }}"> <button>View Gallery</button> </a>
     </div>
   </div>
 {% endblock %}

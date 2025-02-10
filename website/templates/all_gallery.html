@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %} All Gallery Images {% endblock title %}
+
+{% block body %}
+<h2>Manage Gallery</h2>
+
+<a href="{{ url_for('admin.add_gallery') }}"><button class="all-gallery-button">Add Image</button></a>
+
+<div class="gallery-table">
+    <h1 style="color: #212121">All Gallery Images</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for image in all_gallery %}
+            <tr>
+                <td>{{ image.id }}</td>
+                <td>
+                    <img src="{{ image.image }}" alt="Gallery Image" width="100">
+                </td>
+                <td>
+                    <button onclick="confirmDelete('{{ url_for('admin.delete_gallery', gallery_id=image.id) }}')">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function confirmDelete(deleteUrl) {
+        let confirmation = confirm("Are you sure you want to delete this image?");
+        if (confirmation) {
+            window.location.href = deleteUrl;
+        }
+    }
+</script>
+
+{% endblock body %}

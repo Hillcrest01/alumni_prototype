@@ -131,15 +131,15 @@
 <div style="background-color: #ECF1F5; color: #212121;">
   <h1 style="text-align: center;" > Recent Jobs </h1>
 <div class="jobs">
-  {% for job in jobs %}
+  {% for job in jobs[:3] %}
     <div class="recent-jobs">
       <img src="{{ job.image }}" alt="an image here" />
       <h1>{{ job.title }}</h1>
-      <p>{{ job.body }}</p>
+      <p>{{ job.body[:100] }}...</p>
       <section>
         <img src="../static/images/location.png" alt="" />{{ job.location }}
       </section>
-      <p>{{ job.job_type }}</p>
+      <!-- <p>{{ job.job_type }}</p> --> <br>
       <a href="https://{{job.link}}"> <button>Apply Now</button> </a>
     </div>
 {% endfor %} 
@@ -153,11 +153,11 @@
 <div style="background-color: #161F37; color: #ffffff;">
   <h1 style="text-align: center;" > Upcoming Events </h1>
 <div class="events">
-  {% for event in events %}
+  {% for event in events[:3] %}
     <div class="recent-events">
       <img src="{{event.image }}" alt="an image here" />
       <h1>{{event.title }}</h1>
-      <p>{{event.body }}</p>
+      <p>{{event.body[:100] }}...</p>
       <section>
         <img src="../static/images/location.png" alt="" />{{event.location }}
       </section>
