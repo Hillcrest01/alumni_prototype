@@ -40,10 +40,6 @@ def gallery():
     images = Gallery.query.all()
     return render_template('gallery.html' , images = images)
 
-@views.route('/blogs')
-def blogs():
-    blogs = Blog.query.all()
-    return render_template('blog.html' , blogs = blogs)
 
 @views.route('/profile')
 @login_required
@@ -64,3 +60,20 @@ def about():
 @views.route('/contact')
 def contact():
     return render_template('contact.html')
+
+
+@views.route('/blogs')
+def all_blogs():
+    blogs = Blog.query.order_by(Blog.date_posted.desc()).all()  # Fetch all blogs
+    return render_template('blogs.html', blogs=blogs)
+
+@views.route('/blog/<int:blog_id>')
+def blog_detail(blog_id):
+    blog = Blog.query.get_or_404(blog_id)  # Fetch the specific blog
+    return render_template('blog_detail.html', blog=blog)
+
+@views.route('/user/<int:user_id>')
+def user_profile(user_id):
+    user = User.query.get_or_404(user_id)  # Fetch user details
+    blogs = Blog.query.filter_by(user_id=user.id).all()  # Get user blogs
+    return render_template('blogger.html', user=user, blogs=blogs)

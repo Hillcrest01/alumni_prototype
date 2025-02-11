@@ -13,6 +13,7 @@ def sign_up():
     form = SignUpForm()
     if form.validate_on_submit():
         regno = request.form.get('regno')
+        username = request.form.get('username')
         year_of_study = request.form.get('year_of_study')
         email_address = request.form.get('email_address')
         password1 = request.form.get('password1')
@@ -37,7 +38,7 @@ def sign_up():
                 flash("Year of study should not be more than 4" , "error")
                 print("Invalid year of study")
         else:
-                new_user  = User(regno = regno , year_of_study = year_of_study, email_address = email_address, password_hash = generate_password_hash(password1) )
+                new_user  = User(regno = regno , username = username, year_of_study = year_of_study, email_address = email_address, password_hash = generate_password_hash(password1) )
                 db.session.add(new_user)
                 db.session.commit()
                 flash("Account created successfully" , "success")

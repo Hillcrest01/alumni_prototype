@@ -7,6 +7,7 @@ from flask_wtf.file import FileField, FileRequired
 #forms for authorization for both admin and students login
 class SignUpForm(FlaskForm):
     regno = StringField("registration number" , validators=[DataRequired()])
+    username = StringField("Username" , validators=[DataRequired()])
     year_of_study = IntegerField("year of study" , validators=[DataRequired()])
     email_address = EmailField("email address" , validators=[DataRequired()])
     password1 = PasswordField("Password" , validators=[DataRequired(), Length(min=6)])
