@@ -6,11 +6,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 class User(db.Model , UserMixin):
     id = db.Column(db.Integer, primary_key = True)
+    username = db.Column(db.String(60))
     regno = db.Column(db.String(20))
     year_of_study = db.Column(db.Integer)
     email_address = db.Column(db.String(50))
     password_hash = db.Column(db.String(500))
     date_joined = db.Column(db.DateTime(), default  = datetime.utcnow)
+    blogs = db.relationship('Blog', backref='author', lazy=True)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -62,6 +64,10 @@ class Blog(db.Model):
     title = db.Column(db.String(100))
     body = db.Column(db.String(1000))
     image = db.Column(db.String(1000))
+    date_posted = db.Column(db.DateTime, default = datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id') , nullable = False)
+
+   
 
 
 class Messages(db.Model):

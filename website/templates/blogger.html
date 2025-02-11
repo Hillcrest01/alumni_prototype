@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} {{ user.username }}'s Profile {% endblock %}
+
+{% block body %}
+<div class="profile-container">
+    <img src="../static/images/avatar2.jpeg" 
+         alt="{{ user.username }}" class="profile-pic-large">
+    <h2>{{ user.username }}</h2>
+    <p>Email: {{ user.email_address }}</p>
+    
+    <h3>Published Blogs</h3>
+    <ol>
+        {% for blog in blogs %}
+        <li style="padding: 10px;"><a href="{{ url_for('views.blog_detail', blog_id=blog.id) }}">{{ blog.title }}</a></li>
+        {% else %}
+        <p>No blogs published yet.</p>
+        {% endfor %}
+    </ol>
+</div>
+
+<style>
+    .profile-container {
+        text-align: center;
+        max-width: 600px;
+        margin: auto;
+    }
+    .profile-pic-large {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+</style>
+{% endblock %}

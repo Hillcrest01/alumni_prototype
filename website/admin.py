@@ -3,6 +3,7 @@ from . import db
 from .models import Jobs, Events, Scholarships, Files, Gallery, Blog, User, Messages
 from .forms import JobsForm, ScholarshipForm, EventForm, FilesForm, BlogForm, GalleryForm
 from werkzeug.utils import secure_filename #used when dealing with images
+from flask_login import login_required, current_user
 
 admin = Blueprint('admin' , __name__)
 
@@ -334,6 +335,7 @@ def delete_file(file_id):
 
 #blogs
 @admin.route('/add_blog' , methods = ['POST' , 'GET'])
+@login_required
 def add_blog():
     form = BlogForm()
     if form.validate_on_submit():
@@ -345,15 +347,15 @@ def add_blog():
             file_path = f'./media/{file_name}'
             file.save(file_path)
 
-            new_blog = Blog(title = title, body = body, image = file_path)
+            new_blog = Blog(title = title, body = body, image = file_path, user_id = current_user.id)
             db.session.add(new_blog)
             db.session.commit()
-            flash('new blog added successfully!')
+            flash('new blog added successfully!' , "success")
             print('new blog added successfully')
-            return redirect(url_for('views.home'))
+            return redirect(url_for('views.all_blogs'))
         
         else:
-            print('blog not added, please try again')
+            print('blog not added, please try again' , "error")
             flash('blog not added, please try again')
 
 
@@ -361,6 +363,7 @@ def add_blog():
     return render_template('add_blog.html' , form = form)
 
 @admin.route('/edit_blog/<int:blog_id>' , methods = ['POST' , 'GET'])
+@login_required
 def edit_blog(blog_id):
     blogs = Blog.query.get_or_404(blog_id)
     form = BlogForm(obj = blogs)
@@ -372,15 +375,15 @@ def edit_blog(blog_id):
             file_name = secure_filename(file.filename)
             file_path = f'./media/{file_name}'
             file.save(file_path)
-            Blog.query.filter_by(id = blog_id).update(dict(title = title, body = body, image = file_path))
+            Blog.query.filter_by(id = blog_id).update(dict(title = title, body = body, image = file_path, user_id = current_user.id))
             db.session.commit()
-            flash('blog successfully updated')
+            flash('blog successfully updated' , "success")
             print("successfully updated")
-            return redirect(url_for('views.home'))
+            return redirect(url_for('views.all_blogs'))
         
 
         else:
-            flash('blog not updated, pleas try again')
+            flash('blog not updated, pleas try again' , "error")
             print('blog not updated!')
 
     return render_template('edit_blog.html' , form = form)
@@ -390,9 +393,12 @@ def delete_blog(blog_id):
     blog_to_delete = Blog.query.get(blog_id)
     db.session.delete(blog_to_delete)
     db.session.commit()
-    flash('blog deleted successfully')
+    flash('blog deleted successfully' , "success")
     print('blog deleted')
-    return redirect(url_for('views.home'))
+    return redirect(url_for('views.all_blogs'))
+
+
+#Gallery
 
 @admin.route('/add_gallery' , methods = ['GET' , 'POST'])
 def add_gallery():
@@ -443,7 +449,7 @@ def submit_message():
         db.session.add(new_message)
         db.session.commit()
 
-        flash('Your message has been sent successfully!', 'success')
+        flash('Your message has been sent successfully! we will reach back shortly.', 'success')
         return redirect(url_for('views.contact'))
 
     return redirect(url_for('home'))
