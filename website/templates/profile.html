@@ -9,8 +9,6 @@
       <li onclick="showSection('personal-details')">Personal Details</li>
       <li onclick="showSection('chats')">Chats</li>
       <li><a href="{{ url_for('auth.change_password') }}">Change Password</a></li>
-      <li onclick="showSection('jobs-applied')">Jobs Applied</li>
-      <li onclick="showSection('events-applied')">Events Applied</li>
       <li onclick="showSection('my-blogs')">My Blogs</li> <!-- Added My Blogs link -->
       <li>
         <a href="{{ url_for('views.download_report') }}">Download your Report</a>
@@ -78,16 +76,6 @@
         <input type="password" name="new_password" required />
         <button type="submit">Change Password</button>
       </form>
-    </div>
-
-    <div id="jobs-applied" class="section" style="display: none">
-      <h2>Jobs Applied</h2>
-      <!-- Job applications content goes here -->
-    </div>
-
-    <div id="events-applied" class="section" style="display: none">
-      <h2>Events Applied</h2>
-      <!-- Event participation content goes here -->
     </div>
   </div>
 </div>

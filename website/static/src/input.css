@@ -21,81 +21,152 @@ a:hover{
     color: #FFD700;
     transition: 0.5s ease-in-out;
 }
-/* Sticky Navbar */
+
+
+/* Navbar */
 nav {
     background-color: #ffffff;
     color: #212121;
     height: 60px;
     width: 100%;
     padding-top: 10px;
+    overflow-x: hidden;
     display: flex;
     justify-content: space-between;
-    position: sticky;
+    align-items: center;
+    position: sticky; /* Makes the navbar sticky */
     top: 0; /* Sticks the navbar at the top */
-    z-index: 10; /* Ensures it stays above other elements */
+    z-index: 1000; /* Ensures it stays above other elements */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
 }
-.logo{
+
+/* Logo */
+.logo {
     height: 60px;
     margin-left: 30px;
 }
+
 /* Navbar List */
-nav ul {
+.nav-links {
     display: flex;
     gap: 20px;
     justify-content: right;
+    align-items: center;
+    margin-right: 20px;
 }
 
-nav ul li {
+.nav-links li {
     list-style-type: none;
     font-size: 18px;
 }
 
-.get-started{
+/* Get Started Button */
+.get-started {
     color: #212121;
     background-color: #FFD700;
     border: none;
-    margin-right: 10px;
     height: 40px;
     width: 150px;
-    margin-top: 0px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 17px;
-    font-family: 'Poppins' , sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
-.get-started:hover{
+
+.get-started:hover {
     background-color: #8a76061a;
-    transition:  0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+}
+
+/* Hamburger Menu (Hidden by Default) */
+.hamburger {
+    display: none; /* Hide on larger screens */
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Hide the regular nav links */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #ffffff;
+        width: 100%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+
+    /* Show the hamburger menu */
+    .hamburger {
+        display: block;
+    }
+
+    /* Show the nav links when the menu is open */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Adjust logo margin for smaller screens */
+    .logo {
+        margin-left: 10px;
+    }
+
+    /* Adjust button size for smaller screens */
+    .get-started {
+        width: 100%;
+        margin: 10px 0;
+    }
 }
 
 
-/*Addition pages was added to make the color of the adding and editing all features in this system black*/
-.addition_pages{
-    color: blue;
-    margin-bottom: 30px;
-}
-.addition-pages{
-    color: blue;
-    margin-bottom: 30px;
-}
 /* Footer */
 footer {
     background-color: #ECF1F5;
     color: #212121;
     width: 100%;
-    padding-top: 10px;
+    padding: 20px 0;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping of footer content */
     margin-top: auto; /* Pushes the footer to the bottom */
 }
-.footer img{
+
+/* Footer Logo */
+footer img {
     height: 60px;
     margin-left: 30px;
 }
 
+/* Footer Links */
+footer ul {
+    padding: 0;
+    margin: 0;
+}
+
 footer ul li {
     list-style-type: none;
+    margin: 10px 0; /* Adds spacing between list items */
+}
+
+/* Social Media Icons */
+footer ul.social-icons {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul.social-icons li {
+    display: inline-block;
 }
 
 /* Footer Copyright */
@@ -104,68 +175,192 @@ footer ul li {
     margin-bottom: 10px;
     background-color: #ECF1F5;
     color: #212121;
-    padding-bottom: 40px;
+    padding: 20px 0; /* Adds padding for better spacing */
+    width: 100%; /* Ensures it spans the full width */
 }
 
-/* Hero section styles starts here */
-.homepage{
+/* Responsive Styles */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column; /* Stacks footer content vertically */
+        align-items: center;
+        text-align: center;
+    }
+
+    footer img {
+        margin-left: 0; /* Removes left margin for centered alignment */
+        margin-bottom: 20px; /* Adds spacing below the logo */
+    }
+
+    footer ul {
+        margin: 10px 0; /* Adds spacing between sections */
+    }
+
+    footer ul.social-icons {
+        justify-content: center; /* Centers social icons */
+    }
+}
+
+/*end of footer*/
+
+
+
+/* Hero section styles */
+.hero {
+    width: 100%;
+    padding: 20px;
+    background-color: #f9f9f9; /* Optional: Add a background color */
+    overflow: hidden; /* Prevents content from overflowing */
+}
+
+.homepage {
     display: flex;
     justify-content: space-between;
-    margin: 20px;
-    margin-left: 60px;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    max-width: 1200px; /* Limits the width of the container */
+    margin: 0 auto; /* Centers the container */
+    gap: 20px; /* Adds spacing between text and image */
 }
-.hero-main{
-    margin-top: 100px;
+
+.hero-main {
+    flex: 1; /* Takes up available space */
+    max-width: 600px; /* Limits the width of the text content */
 }
-.proud{
+
+.proud {
     font-size: 90px;
     font-weight: bold;
+    line-height: 1.1; /* Improves readability */
+    color: #212121;
 }
-.students{
+
+.students {
     font-size: 40px;
-}
-.jobs-link{
+    margin-top: 20px; /* Adds spacing between heading and subheading */
     color: #212121;
-    background-color: #12bb32;
-    border: none;
-    margin-right: 10px;
-    height: 50px;
-    width: 180px;
-    margin-top: 0px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 17px;
-    font-family: 'Poppins' , sans-serif;
 }
-.alumni-connect{
-    color: #212121;
-    background-color: #FFD700;
-    border: none;
-    margin-right: 10px;
-    height: 50px;
-    width: 180px;
-    margin-top: 0px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 17px;
-    font-family: 'Poppins' , sans-serif;
+
+.students span {
+    color: #12bb32; /* Green color for "Egerton University" */
 }
-.quick-links{
-    margin-top: 40px;
-}
-.quick-links p{
-    font-size: 20px;
-    width: 95%;
-}
-.hero img{
-    position: relative;
-    height: 70vh;
-    width: 60%;
+
+.quick-links {
     margin-top: 30px;
 }
-/* the end of hero section styles */
+
+.quick-links p {
+    font-size: 18px;
+    line-height: 1.6; /* Improves readability */
+    color: #555;
+    max-width: 100%; /* Ensures text doesn't overflow */
+}
+
+.button-container {
+    display: flex;
+    gap: 20px; /* Adds spacing between buttons */
+    margin-top: 30px; /* Adds spacing below the paragraph */
+    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+}
+
+.jobs-link,
+.alumni-connect {
+    color: #212121;
+    border: none;
+    height: 50px;
+    width: 180px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.jobs-link {
+    background-color: #12bb32;
+}
+
+.alumni-connect {
+    background-color: #FFD700;
+}
+
+.jobs-link:hover,
+.alumni-connect:hover {
+    opacity: 0.9; /* Slight hover effect */
+}
+
+.homepage img {
+    max-width: 50%; /* Limits image width */
+    height: auto; /* Ensures the image scales proportionally */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .proud {
+        font-size: 70px; /* Reduces font size for smaller screens */
+    }
+
+    .students {
+        font-size: 30px; /* Reduces font size for smaller screens */
+    }
+
+    .homepage img {
+        max-width: 45%; /* Reduces image width for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .homepage {
+        flex-direction: column; /* Stacks content vertically */
+        text-align: center; /* Centers text */
+        gap: 10px; /* Reduces gap between sections */
+    }
+
+    .hero-main {
+        max-width: 100%; /* Full width for text content */
+    }
+
+    .proud {
+        font-size: 50px; /* Further reduces font size for smaller screens */
+    }
+
+    .students {
+        font-size: 24px; /* Further reduces font size for smaller screens */
+    }
+
+    .button-container {
+        justify-content: center; /* Centers buttons */
+    }
+
+    .homepage img {
+        max-width: 80%; /* Increases image width for better visibility */
+        margin-top: 20px; /* Adds spacing above the image */
+    }
+}
+
+@media (max-width: 480px) {
+    .proud {
+        font-size: 40px; /* Further reduces font size for very small screens */
+    }
+
+    .students {
+        font-size: 20px; /* Further reduces font size for very small screens */
+    }
+
+    .jobs-link,
+    .alumni-connect {
+        width: 100%; /* Full width buttons for very small screens */
+    }
+
+    .homepage img {
+        max-width: 100%; /* Full width image for very small screens */
+    }
+}
+
+
 /* styles for responsibilities starts here */
-.responsibility{
+/* .responsibility{
     background-color: #ECF1F5;
     color: #212121;
     padding-left: 30px;
@@ -187,12 +382,102 @@ footer ul li {
     width: 60px;
     height: 60px;
     border-radius: 150%;
+} */
+
+
+/* Responsibility Section */
+.responsibility {
+    background-color: #ECF1F5;
+    color: #212121;
+    padding: 40px 20px; /* Adds padding on all sides */
+    text-align: center; /* Centers the content */
+}
+
+.responsibility h1 {
+    font-size: 2.5rem; /* Larger font size for the heading */
+    margin-bottom: 30px; /* Adds spacing below the heading */
+}
+
+.roles {
+    display: flex;
+    justify-content: center; /* Centers the cards horizontally */
+    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+    gap: 20px; /* Adds spacing between cards */
+    max-width: 1200px; /* Limits the width of the container */
+    margin: 0 auto; /* Centers the container */
+}
+
+.card {
+    background-color: #ffffff; /* Adds a white background to the cards */
+    border-radius: 10px;
+    padding: 20px;
+    width: 270px; /* Fixed width for each card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lifts the card slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhances shadow on hover */
+}
+
+.card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Makes the image circular */
+    margin-bottom: 15px; /* Adds spacing below the image */
+}
+
+.card h3 {
+    font-size: 1.5rem; /* Larger font size for the card title */
+    margin-bottom: 10px; /* Adds spacing below the title */
+}
+
+.card p {
+    font-size: 1rem; /* Standard font size for the card text */
+    color: #555; /* Slightly lighter text color */
+    line-height: 1.5; /* Improves readability */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .roles {
+        gap: 15px; /* Reduces gap between cards */
+    }
+
+    .card {
+        width: 45%; /* Two cards per row on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%; /* Full width for cards on mobile */
+        max-width: 350px; /* Limits card width for better readability */
+    }
+}
+
+@media (max-width: 480px) {
+    .responsibility h1 {
+        font-size: 2rem; /* Smaller font size for mobile */
+    }
+
+    .card h3 {
+        font-size: 1.3rem; /* Smaller font size for mobile */
+    }
+
+    .card p {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
 }
 
 /* responsibility ends here.... */
 
+
+
+
 /* mission starts here */
-.mission{
+/* .mission{
     background-color: #ECF1F5;
     color: #212121;
     padding-bottom: 40px;
@@ -228,12 +513,124 @@ footer ul li {
 .mission-content button:hover{
     background-color: wheat;
     transition: 0.5s ease-in-out;
-}
+} */
 /* 
 mission ends here */
 
+
+/* Mission Section */
+.mission {
+    background-color: #ECF1F5;
+    color: #212121;
+    padding: 40px 20px; /* Adds padding on all sides */
+}
+
+.mission h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px; /* Adds spacing below the heading */
+}
+
+.mission-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically centers the content */
+    gap: 40px; /* Adds spacing between the image and text */
+    max-width: 1200px; /* Limits the width of the container */
+    margin: 0 auto; /* Centers the container */
+    padding: 0 20px; /* Adds padding to the sides */
+}
+
+.mission-content img {
+    width: 50%; /* Makes the image responsive */
+    max-width: 600px; /* Limits the image width */
+    border-radius: 10px;
+    height: auto; /* Ensures the image scales proportionally */
+}
+
+.mission-content p {
+    font-size: 1.1rem; /* Standard font size for the text */
+    line-height: 1.6; /* Improves readability */
+    color: #555; /* Slightly lighter text color */
+    flex: 1; /* Allows the text to take up remaining space */
+}
+
+.mission-content button {
+    background-color: #12bb32;
+    color: #212121;
+    height: 50px;
+    width: 180px;
+    border: none;
+    margin-top: 20px; /* Adds spacing above the button */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.mission-content button:hover {
+    background-color: wheat;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .mission-content {
+        flex-direction: column; /* Stacks content vertically */
+        text-align: center; /* Centers the text */
+        gap: 20px; /* Reduces gap between elements */
+    }
+
+    .mission-content img {
+        width: 80%; /* Increases image width for better visibility */
+        max-width: 100%; /* Ensures the image doesn't overflow */
+    }
+
+    .mission-content p {
+        font-size: 1rem; /* Slightly smaller font size for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .mission h1 {
+        font-size: 32px; /* Smaller font size for mobile */
+    }
+
+    .mission-content img {
+        width: 100%; /* Full width for the image on mobile */
+    }
+
+    .mission-content p {
+        font-size: 0.95rem; /* Smaller font size for mobile */
+    }
+
+    .mission-content button {
+        width: 150px; /* Smaller button for mobile */
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mission h1 {
+        font-size: 28px; /* Even smaller font size for very small screens */
+    }
+
+    .mission-content p {
+        font-size: 0.9rem; /* Smaller font size for very small screens */
+    }
+
+    .mission-content button {
+        width: 130px; /* Smaller button for very small screens */
+        font-size: 15px;
+    }
+}
+
+/*Mission ends here */
+
+
+
 /* stats starts here */
-.stats{
+/* .stats{
     display: flex;
     justify-content: space-evenly;
     background-color: #161F37;
@@ -248,38 +645,126 @@ mission ends here */
     height: 70px;
     width: 70px;
     align-items: center;
-}
+} */
 /* end of stats styles */
 
-/* beginning of recent jobs styles */
+/* Stats Section */
+.stats {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #161F37;
+    color: #ffffff; /* Ensures text is visible on dark background */
+    padding: 40px 20px; /* Adds padding on all sides */
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    gap: 20px; /* Adds spacing between items */
+}
+
+.members {
+    display: flex;
+    align-items: center; /* Vertically centers the content */
+    gap: 10px; /* Adds spacing between the image and text */
+}
+
+.members img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image scales properly */
+}
+
+.members h1 {
+    font-size: 2rem; /* Larger font size for the number */
+    margin: 0; /* Removes default margin */
+}
+
+.members p {
+    font-size: 1rem; /* Standard font size for the text */
+    margin: 0; /* Removes default margin */
+    color: #ccc; /* Slightly lighter text color */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .members {
+        flex: 1 1 45%; /* Two items per row on tablets */
+        justify-content: center; /* Centers the content */
+    }
+}
+
+@media (max-width: 768px) {
+    .members {
+        flex: 1 1 100%; /* Full width for items on mobile */
+        justify-content: flex-start; /* Aligns content to the left */
+    }
+
+    .members img {
+        height: 60px; /* Smaller image size for mobile */
+        width: 60px;
+    }
+
+    .members h1 {
+        font-size: 1.8rem; /* Smaller font size for mobile */
+    }
+
+    .members p {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .members {
+        flex-direction: column; /* Stacks image and text vertically */
+        align-items: center; /* Centers the content */
+        text-align: center; /* Centers the text */
+    }
+
+    .members img {
+        height: 50px; /* Smaller image size for very small screens */
+        width: 50px;
+    }
+
+    .members h1 {
+        font-size: 1.5rem; /* Smaller font size for very small screens */
+    }
+
+    .members p {
+        font-size: 0.8rem; /* Smaller font size for very small screens */
+    }
+}
+
+
+
+/* Recent Jobs Section */
 .jobs {
     background-color: #ECF1F5;
     color: #212121;
-    /* padding: 20px; */
+    padding: 20px;
     display: flex;
     flex-wrap: wrap; /* Allows multiple rows of job cards */
-    gap: 20px;
+    gap: 20px; /* Adds spacing between job cards */
     justify-content: center; /* Centers the job cards */
+    max-width: 1200px; /* Limits the width of the container */
+    margin: 0 auto; /* Centers the container */
 }
 
 .recent-jobs {
     background-color: #ffffff;
-    width: 330px;
+    width: 330px; /* Fixed width for each job card */
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 10px;
+    padding: 20px; /* Adds padding inside the card */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers the content inside */
     text-align: center;
-    /* gap: 20px; */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease-in-out; /* Adds a hover effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
     cursor: pointer;
 }
 
 .recent-jobs:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    transform: translateY(-5px); /* Lifts the card slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhances shadow on hover */
 }
 
 .recent-jobs img {
@@ -288,13 +773,31 @@ mission ends here */
     max-height: 150px;
     object-fit: cover;
     border-radius: 5px;
+    margin-bottom: 15px; /* Adds spacing below the image */
+}
+
+.recent-jobs h1 {
+    font-size: 1.5rem; /* Larger font size for the job title */
+    margin-bottom: 10px; /* Adds spacing below the title */
+}
+
+.recent-jobs p {
+    font-size: 1rem; /* Standard font size for the job description */
+    color: #555; /* Slightly lighter text color */
+    line-height: 1.5; /* Improves readability */
+    margin-bottom: 15px; /* Adds spacing below the description */
+}
+
+.recent-jobs section {
+    display: flex;
+    align-items: center; /* Centers the location icon and text */
+    margin-bottom: 15px; /* Adds spacing below the location */
 }
 
 .recent-jobs section img {
     width: 16px;
     height: 16px;
-    margin-right: 5px;
-    vertical-align: middle;
+    margin-right: 5px; /* Adds spacing between the icon and text */
 }
 
 .recent-jobs button {
@@ -310,59 +813,98 @@ mission ends here */
 
 .recent-jobs button:hover {
     background-color: #FFD700;
-    transition: transform 0.5s ease-in-out;
+    color: #212121;
 }
 
-.view-all-jobs{
+/* View All Jobs Button */
+.view-all-jobs {
     display: flex;
     justify-content: center;
-    margin: 40px;
+    margin: 40px 0; /* Adds spacing above and below the button */
 }
-.view-all-jobs button{
+
+.view-all-jobs button {
     width: 200px;
     height: 50px;
     background-color: #FFD700;
-    font-family: 'Poppins' , sans-serif;
+    font-family: 'Poppins', sans-serif;
     border: none;
     font-size: 15px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-.view-all-jobs button:hover{
-    background-color: #ebe9e1;
-    transition: 0.5s ease-in-out;
-}
-/* end of jobs styles */
 
-/* beginning of events styles */
+.view-all-jobs button:hover {
+    background-color: #ebe9e1;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .recent-jobs {
+        width: 45%; /* Two cards per row on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .recent-jobs {
+        width: 100%; /* Full width for cards on mobile */
+        max-width: 350px; /* Limits card width for better readability */
+    }
+}
+
+@media (max-width: 480px) {
+    .recent-jobs h1 {
+        font-size: 1.3rem; /* Smaller font size for mobile */
+    }
+
+    .recent-jobs p {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+
+    .recent-jobs button {
+        font-size: 13px; /* Smaller font size for mobile */
+    }
+
+    .view-all-jobs button {
+        width: 180px; /* Smaller button for mobile */
+        font-size: 14px;
+    }
+}
+
+
+
+/* Events Section */
 .events {
     background-color: #161F37;
-    color: #212121;
-    padding: 20px;
+    color: #ffffff; /* Ensures text is visible on dark background */
+    padding: 40px 20px; /* Adds padding on all sides */
     display: flex;
-    flex-wrap: wrap; /* Allows multiple rows of job cards */
-    gap: 20px;
-    justify-content: center; /* Centers the job cards */
+    flex-wrap: wrap; /* Allows multiple rows of event cards */
+    gap: 20px; /* Adds spacing between event cards */
+    justify-content: center; /* Centers the event cards */
+    max-width: 1200px; /* Limits the width of the container */
+    margin: 0 auto; /* Centers the container */
 }
 
 .recent-events {
     background-color: #ffffff;
-    width: 330px;
+    width: 330px; /* Fixed width for each event card */
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 15px;
+    padding: 20px; /* Adds padding inside the card */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers the content inside */
     text-align: center;
-    gap: 10px;
-    box-shadow: 0 4px 6px rgba(248, 5, 5, 0.1);
-    transition: transform 0.5s ease-in-out; /* Adds a hover effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
     cursor: pointer;
 }
 
 .recent-events:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+    transform: translateY(-5px); /* Lifts the card slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhances shadow on hover */
 }
 
 .recent-events img {
@@ -371,13 +913,32 @@ mission ends here */
     max-height: 150px;
     object-fit: cover;
     border-radius: 5px;
+    margin-bottom: 15px; /* Adds spacing below the image */
+}
+
+.recent-events h1 {
+    font-size: 1.5rem; /* Larger font size for the event title */
+    margin-bottom: 10px; /* Adds spacing below the title */
+    color: #212121; /* Ensures text is visible on white background */
+}
+
+.recent-events p {
+    font-size: 1rem; /* Standard font size for the event description */
+    color: #555; /* Slightly lighter text color */
+    line-height: 1.5; /* Improves readability */
+    margin-bottom: 15px; /* Adds spacing below the description */
+}
+
+.recent-events section {
+    display: flex;
+    align-items: center; /* Centers the location icon and text */
+    margin-bottom: 15px; /* Adds spacing below the location */
 }
 
 .recent-events section img {
     width: 16px;
     height: 16px;
-    margin-right: 5px;
-    vertical-align: middle;
+    margin-right: 5px; /* Adds spacing between the icon and text */
 }
 
 .recent-events button {
@@ -393,84 +954,194 @@ mission ends here */
 
 .recent-events button:hover {
     background-color: #FFD700;
-    transition: transform 0.5 ease-in-out;
+    color: #212121;
 }
 
-.view-all-events{
+/* View All Events Button */
+.view-all-events {
     display: flex;
     justify-content: center;
-    margin: 40px;
+    margin: 40px 0; /* Adds spacing above and below the button */
 }
-.view-all-events button{
+
+.view-all-events button {
     width: 200px;
     height: 50px;
     background-color: #ffffff;
-    font-family: 'Poppins' , sans-serif;
+    font-family: 'Poppins', sans-serif;
     border: none;
     font-size: 15px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-.view-all-events button:hover{
-    background-color: #ebe9e1;
-    transition: 0.5s ease-in-out;
-}
-/* end of events styles */
 
-.newsletter{
-    padding-top: 30px;
-    display: grid;
-    justify-content: center;
+.view-all-events button:hover {
+    background-color: #ebe9e1;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .recent-events {
+        width: 45%; /* Two cards per row on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .recent-events {
+        width: 100%; /* Full width for cards on mobile */
+        max-width: 350px; /* Limits card width for better readability */
+    }
+}
+
+@media (max-width: 480px) {
+    .recent-events h1 {
+        font-size: 1.3rem; /* Smaller font size for mobile */
+    }
+
+    .recent-events p {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+
+    .recent-events button {
+        font-size: 13px; /* Smaller font size for mobile */
+    }
+
+    .view-all-events button {
+        width: 180px; /* Smaller button for mobile */
+        font-size: 14px;
+    }
+}
+
+
+
+/* Newsletter Section */
+.newsletter {
+    padding: 40px 20px; /* Adds padding on all sides */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content */
     background-color: #ECF1F5;
     color: #212121;
-    padding-bottom: 50px;
+    text-align: center; /* Centers the text */
 }
-.newsletter h1{
+
+.newsletter h1 {
     font-size: 40px;
+    margin-bottom: 20px; /* Adds spacing below the heading */
 }
-.newsletter p{
-    padding-left: 200px;
+
+.newsletter p {
     font-size: 20px;
+    margin-bottom: 30px; /* Adds spacing below the paragraph */
+    max-width: 800px; /* Limits the width of the paragraph */
+    padding: 0 20px; /* Adds padding for smaller screens */
 }
-.newsletter input{
+
+.newsletter form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the form elements */
+    gap: 20px; /* Adds spacing between input and button */
+}
+
+.newsletter input {
     border: none;
     background-color: inherit;
-    width: 300px;
-    height: 30px;
+    width: 100%; /* Full width for input */
+    max-width: 400px; /* Limits the input width */
+    height: 50px;
     border-bottom: 1px solid #212121;
-    font-family: 'Poppins' , sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 15px;
-    margin-left: 350px;
+    padding: 0 10px; /* Adds padding inside the input */
+    text-align: center; /* Centers the input text */
 }
-.newsletter input:active{
-    border: none;
+
+.newsletter input:focus {
+    outline: none; /* Removes the default outline */
+    border-bottom: 2px solid #12bb32; /* Adds a focus effect */
 }
-.newsletter button{
+
+.newsletter button {
     width: 200px;
     height: 50px;
     background-color: #FFD700;
-    font-family: 'Poppins' , sans-serif;
+    font-family: 'Poppins', sans-serif;
     border: none;
     font-size: 17px;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 350px;
-}
-.newsletter button:hover{
-    background-color: #ebe9e1;
-    transition: 0.5s ease-in-out;
+    transition: background-color 0.3s ease;
 }
 
-.mini-gallery{
-    display: flex;
-    justify-content: space-around;
-    background-color: #ECF1F5;
+.newsletter button:hover {
+    background-color: #ebe9e1;
 }
-.mini-gallery img{
-    height: 400px;
-    height: 400px;
+
+/* Mini Gallery Section */
+.mini-gallery {
+    display: flex;
+    justify-content: center; /* Centers the images */
+    flex-wrap: wrap; /* Allows images to wrap on smaller screens */
+    gap: 20px; /* Adds spacing between images */
+    background-color: #ECF1F5;
+    padding: 20px; /* Adds padding around the gallery */
+}
+
+.mini-gallery img {
+    width: 100%; /* Full width for images */
+    max-width: 300px; /* Limits the image width */
+    height: auto; /* Ensures the image scales proportionally */
     border-radius: 30px;
-    padding: 10px;
+    object-fit: cover; /* Ensures the image covers the area */
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .newsletter h1 {
+        font-size: 32px; /* Smaller font size for tablets */
+    }
+
+    .newsletter p {
+        font-size: 18px; /* Smaller font size for tablets */
+    }
+
+    .mini-gallery img {
+        max-width: 250px; /* Smaller images for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .newsletter h1 {
+        font-size: 28px; /* Smaller font size for mobile */
+    }
+
+    .newsletter p {
+        font-size: 16px; /* Smaller font size for mobile */
+    }
+
+    .newsletter input {
+        width: 90%; /* Full width for input on mobile */
+    }
+
+    .mini-gallery img {
+        max-width: 100%; /* Full width for images on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .newsletter h1 {
+        font-size: 24px; /* Smaller font size for very small screens */
+    }
+
+    .newsletter p {
+        font-size: 14px; /* Smaller font size for very small screens */
+    }
+
+    .newsletter button {
+        width: 200px; /* Full width for button on very small screens */
+    }
 }
 
 
