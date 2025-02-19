@@ -9,7 +9,7 @@
     <title>Alumni | {% block title %} {% endblock title %} </title>
 </head>
 <body class="text-center font-bold">
-    <nav>
+    <!-- <nav>
         <a href="/"><img class="logo" src="../static/images/logo_to_use.png" alt="company logo here"></a>
         <ul class="text-blue-800 my-57 text-center flex gap-10 cursor-pointer list-none">
             <li><a href="/">Home</a></li>
@@ -24,7 +24,24 @@
 
              {% endif %}
         </ul>
-    </nav>
+    </nav> -->
+    <body class="text-center font-bold">
+        <nav>
+            <a href="/"><img class="logo" src="../static/images/logo_to_use.png" alt="Company Logo"></a>
+            <button class="hamburger" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/files">Learning</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/scholarships">Scholarships</a></li>
+                {% if current_user.is_authenticated %}
+                    <li><a href="/profile"><button class="get-started">My Dashboard</button></a></li>
+                {% else %}
+                    <li><a href="/signup"><button class="get-started">Get Started</button></a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </body>
     {% with messages = get_flashed_messages(with_categories = True) %}
        {% if messages %}
           <div class="flash-messages">
@@ -40,11 +57,14 @@
     {% endblock body %}
 
     <footer>
+        <!-- Logo -->
         <div>
-        <a href="/">
-            <img src="../static/images/logo_to_use.png" alt="">
-        </a>
+            <a href="/">
+                <img src="../static/images/logo_to_use.png" alt="Company Logo">
+            </a>
         </div>
+    
+        <!-- Footer Links -->
         <div>
             <ul>
                 <li><a href="{{url_for('views.contact')}}">Contact Us</a></li>
@@ -53,13 +73,14 @@
                 <li><a href="{{url_for('views.gallery')}}">Gallery</a></li>
             </ul>
         </div>
-
+    
+        <!-- Social Media Icons -->
         <div>
-            <ul style="list-style: none; padding: 0; display: flex; gap: 20px;">
+            <ul class="social-icons">
                 <!-- Facebook -->
                 <li>
                     <a href="https://www.facebook.com" target="_blank" style="text-decoration: none; color: #1877F2;">
-                        <i class="fab fa-facebook fa-2x"></i> 
+                        <i class="fab fa-facebook fa-2x"></i>
                     </a>
                 </li>
                 <!-- Instagram -->
@@ -82,14 +103,18 @@
                 </li>
             </ul>
         </div>
-        
+    
         <!-- Include Font Awesome CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-            
     </footer>
+    
+    <!-- Copyright Section -->
     <section class="copyright">
         &copy; 2024 Egerton University Computer Science Department
     </section>
+
+
+
     <script>
         // Example: Automatically fade out flash messages after 5 seconds
         setTimeout(() => {
@@ -100,6 +125,15 @@
                 setTimeout(() => flash.remove(), 5000); // Remove after fade-out
             });
         }, 5000); // 5-second delay
+
+        document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
+    });
+});
     </script>
 </body>
 </html>
