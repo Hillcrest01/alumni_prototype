@@ -23,30 +23,29 @@ a:hover{
 }
 
 
-/* Navbar */
+.addition-pages{
+    color: #212121;
+}
+
 nav {
     background-color: #ffffff;
     color: #212121;
     height: 60px;
     width: 100%;
-    padding-top: 10px;
-    overflow-x: hidden;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky; /* Makes the navbar sticky */
-    top: 0; /* Sticks the navbar at the top */
-    z-index: 1000; /* Ensures it stays above other elements */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo */
 .logo {
     height: 60px;
-    margin-left: 30px;
 }
 
-/* Navbar List */
 .nav-links {
     display: flex;
     gap: 20px;
@@ -60,7 +59,6 @@ nav {
     font-size: 18px;
 }
 
-/* Get Started Button */
 .get-started {
     color: #212121;
     background-color: #FFD700;
@@ -78,53 +76,37 @@ nav {
     transition: 0.5s ease-in-out;
 }
 
-/* Hamburger Menu (Hidden by Default) */
 .hamburger {
-    display: none; /* Hide on larger screens */
-    font-size: 24px;
+    display: none;
+    font-size: 30px;
     background: none;
     border: none;
     cursor: pointer;
-    margin-right: 20px;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
-    /* Hide the regular nav links */
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 60px;
-        right: 0;
-        background-color: #ffffff;
+        left: 0;
         width: 100%;
+        background-color: white;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         padding: 20px 0;
     }
-
-    /* Show the hamburger menu */
-    .hamburger {
-        display: block;
-    }
-
-    /* Show the nav links when the menu is open */
     .nav-links.active {
         display: flex;
     }
-
-    /* Adjust logo margin for smaller screens */
-    .logo {
-        margin-left: 10px;
+    .nav-links li {
+        text-align: center;
+        padding: 10px 0;
     }
-
-    /* Adjust button size for smaller screens */
-    .get-started {
-        width: 100%;
-        margin: 10px 0;
+    .hamburger {
+        display: block;
     }
 }
-
 
 /* Footer */
 footer {
