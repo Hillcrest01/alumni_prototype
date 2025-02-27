@@ -342,6 +342,7 @@ def add_blog():
         title = request.form.get("title")
         body = request.form.get("body")
         file = form.image.data
+        #the condition below is added to deal with images.
         if file and file.filename:
             file_name = secure_filename(file.filename)
             file_path = f'./media/{file_name}'
