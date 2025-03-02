@@ -56,6 +56,7 @@ def all_messages():
 def get_image(filename):
     return send_from_directory('../media/' , filename)
 
+#CRUD operations for the whole application
 #Jobs
 @admin.route('/add_job' , methods = ['POST' , 'GET'])
 def add_job():
