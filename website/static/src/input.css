@@ -1003,7 +1003,7 @@ mission ends here */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers the content */
-    background-color: #ECF1F5;
+    background-color: #cccfd1;
     color: #212121;
     text-align: center; /* Centers the text */
 }
