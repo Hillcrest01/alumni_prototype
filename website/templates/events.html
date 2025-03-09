@@ -9,6 +9,7 @@
     Apply to be part of the great events!
 </h2>
 <div class="events">
+  {% if event %}
     {% for event in events %}
       <div class="recent-events">
         <img src="{{event.image }}" alt="an image here" />
@@ -20,6 +21,9 @@
         <a href="https://{{event.link}}" target="_blank"> <button> Join Event </button> </a>
       </div>
   {% endfor %} 
+  {% else %}
+      <h1 style="color: white;">There's no event now, please check later</h1>
+  {% endif %}
   </div>
 
 {% endblock body %}
