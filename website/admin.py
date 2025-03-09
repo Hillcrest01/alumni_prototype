@@ -3,7 +3,7 @@ from . import db
 from .models import Jobs, Events, Scholarships, Files, Gallery, Blog, User, Messages
 from .forms import JobsForm, ScholarshipForm, EventForm, FilesForm, BlogForm, GalleryForm
 from werkzeug.utils import secure_filename #used when dealing with images
-from flask_login import login_required, current_user
+from flask_login import login_required, current_user    
 
 admin = Blueprint('admin' , __name__)
 

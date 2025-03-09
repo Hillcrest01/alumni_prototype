@@ -8,6 +8,7 @@
 
 
 <div class="jobs">
+  {% if job %}
     {% for job in jobs %}
       <div class="recent-jobs">
         <img src="{{ job.image }}" alt="an image here" />
@@ -20,6 +21,9 @@
         <a href="https://{{job.link}}" target="_blank"> <button>Apply Now</button> </a>
       </div>
   {% endfor %} 
-
+  {% else %}
+  <h2>There's no job now, please check later</h2>
+  {% endif %}
+  </div>
 
 {% endblock body %}
