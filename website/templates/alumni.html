@@ -1,9 +1,188 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %} Home {% endblock %} {% block body %}
+<div class="hero">
+  <div class="homepage">
+    <div class="hero-main">
+      <span class="proud">We are Proud</span> <br />
+      <span class="students"
+        >Alumni of <span style="color: #12bb32">Egerton University</span></span
+      >
+      <br />
+      <div class="quick-links">
+        <p>
+          Your gateway to reconnect with students, faculty, and peers. Here,
+          you’ll find opportunities to mentor rising talent, share career
+          insights, collaborate on projects, and expand your professional
+          network—all designed to strengthen your legacy and empower the next
+          generation. <br> Start engaging today and shape futures, including your
+          own.
+        </p>
+        <a href="/jobs">
+          <button class="jobs-link">Jobs/Internships</button>
+        </a>
+        &nbsp; &nbsp;
+        <a href="/alumni">
+          <button class="alumni-connect">Students Connect</button>
+        </a>
+      </div>
+    </div>
+    <img src="../static/images/egerton.jpg" alt="hero image here" />
+  </div>
+</div>
 
-{% block title %} alumni {% endblock title %}
+<div class="responsibility">
+  <h1>Our Responsibility</h1>
+  <div class="roles">
+    <div class="card">
+      <img src="../static/images/responsibility_01.avif" alt="" />
+      <h3>Scholarship</h3>
+      <p>
+        Empowering alumni through scholarships to support continued education
+        and professional development. Discover numerous funding opportunities
+        tailored for our accomplished community.
+      </p>
+    </div>
+    <!-- mentorship -->
+    <div class="card">
+      <img src="../static/images/responsibility_02.webp" alt="" />
+      <h3>Mentorship</h3>
+      <p>
+        Engage with fellow alumni and professionals to share experiences,
+        provide guidance, and support each other in career advancement,
+        personal development, and lifelong learning.
+      </p>
+    </div>
+    <div class="card">
+      <img src="../static/images/responsibility_03.avif" alt="" />
+      <h3>Build Our Community</h3>
+      <p>
+        Create meaningful connections by engaging with fellow alumni, students, and
+        partners to nurture a strong, inclusive community that thrives together.
+      </p>
+    </div>
+    <div class="card">
+      <img src="../static/images/responsibility_04.webp" alt="" />
+      <h3>Supporting the Department</h3>
+      <p>
+        Join hands to strengthen our department by contributing ideas,
+        resources, and expertise to foster innovation and excellence.
+      </p>
+    </div>
+  </div>
+</div>
 
-{% block body %}
+<div class="mission">
+  <h1>Our Mission</h1>
+  <div class="mission-content">
+    <img src="../static/images/graduates.jpg" alt="mission image" />
+    <p>
+      Our mission is to establish a dynamic and inclusive platform that bridges
+      the gap between students, alumni, and faculty within our community. We aim
+      to inspire and empower through mentorship, create opportunities for growth
+      and development, and provide access to resources such as scholarships, job
+      placements, and learning materials. By fostering collaboration and
+      engagement, we strive to build a supportive environment where knowledge is
+      shared, careers are shaped, and the future of our community is
+      strengthened. Together, we are committed to driving innovation, creating
+      meaningful connections, and ensuring the success of every member of our
+      network. <br />
+      <a href="{{ url_for('views.about') }}"><button>More About Us</button></a>
+    </p>
+  </div>
+</div>
 
-This is the alumni page where everything concerning alumni will be displayed.
+<div class="stats">
+  <div class="members">
+    <img src="../static/images/man.png" alt="" />
+    <div>
+      <h1>{{members}} +</h1>
+      <p>Members</p>
+    </div>
+  </div>
 
-{% endblock body %}
+  <div class="members">
+    <img src="../static/images/scholarship.png" alt="" />
+    <div>
+      <h1>{{scholarship}} +</h1>
+      <p>scholarships</p>
+    </div>
+  </div>
+
+  <div class="members">
+    <img src="../static/images/event-list.png" alt="" />
+    <div>
+      <h1>{{event}} +</h1>
+      <p>Events</p>
+    </div>
+  </div>
+
+  <div class="members">
+    <img src="../static/images/award.png" alt="" />
+    <div>
+      <h1>{{internship}} +</h1>
+      <p>Jobs</p>
+    </div>
+  </div>
+</div>
+
+<div style="background-color: #ecf1f5; color: #212121">
+  <h1 style="text-align: center">Recent Jobs</h1>
+  <div class="jobs">
+    {% for job in jobs[:3] %}
+    <div class="recent-jobs">
+      <img src="{{ job.image }}" alt="an image here" />
+      <h1>{{ job.title }}</h1>
+      <p>{{ job.body[:100] }}...</p>
+      <section>
+        <img src="../static/images/location.png" alt="" />{{ job.location }}
+      </section>
+      <!-- <p>{{ job.job_type }}</p> -->
+      <br />
+      <a href="https://{{job.link}}"> <button>Apply Now</button> </a>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="view-all-jobs">
+    <a href="/jobs"><button>View All Jobs</button></a>
+  </div>
+</div>
+
+<!-- events starts here -->
+<div style="background-color: #161f37; color: #ffffff">
+  <h1 style="text-align: center">Upcoming Events</h1>
+  <div class="events">
+    {% for event in events[:3] %}
+    <div class="recent-events">
+      <img src="{{event.image }}" alt="an image here" />
+      <h1>{{event.title }}</h1>
+      <p>{{event.body[:100] }}...</p>
+      <section>
+        <img src="../static/images/location.png" alt="" />{{event.location }}
+      </section>
+      <a href="https://{{event.link}}"> <button>Join Event</button> </a>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="view-all-events">
+    <a href="/events"><button>View All Events</button></a>
+  </div>
+</div>
+
+<div class="newsletter">
+  <h1>Don’t Miss Awesome Stories From Our Alumni</h1>
+  <p>Join Our Newsletter Today to keep on receiving the updates</p>
+  <input
+    type="email"
+    name="email"
+    placeholder="enter your email address here"
+    id=""
+  />
+  <br />
+  <a href="/"><button>submit</button></a>
+</div>
+
+<div class="mini-gallery">
+  <img src="../static/images/alumgal1.jpeg" alt="" />
+  <img src="../static/images/alumgal2.jpeg" alt="">
+  <img src="../static/images/alumgal3.jpeg" alt="" />
+</div>
+{% endblock %}
