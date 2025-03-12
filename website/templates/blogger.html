@@ -8,7 +8,7 @@
     <h2>{{ user.username }}</h2>
     <p>Email: {{ user.email_address }}</p>
     
-    <h3>Published Blogs</h3>
+    <h3>Explore Published Blogs</h3>
     <ol>
         {% for blog in blogs %}
         <li style="padding: 10px;"><a href="{{ url_for('views.blog_detail', blog_id=blog.id) }}">{{ blog.title }}</a></li>
