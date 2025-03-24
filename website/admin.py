@@ -82,7 +82,7 @@ def add_job():
             return redirect(url_for('admin.all_jobs'))
 
         else:
-            flash('job not added, please try again' , "error")
+            flash('it's us, job not added, please try again' , "error")
             print('job not added!!')
 
     return render_template('add_job.html' , form = form)
