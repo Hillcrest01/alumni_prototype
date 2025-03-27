@@ -18,3 +18,7 @@ def alumni_home():
 
 
     return render_template('alumni.html' , jobs=jobs, events=events, members=members, event=event, scholarship=scholarship, internship=internship)
+
+@alumni.route('/chats')
+def chats():
+    return render_template('chats.html')    
