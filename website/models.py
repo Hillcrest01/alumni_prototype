@@ -13,6 +13,7 @@ class User(db.Model , UserMixin):
     password_hash = db.Column(db.String(500))
     date_joined = db.Column(db.DateTime(), default  = datetime.utcnow)
     blogs = db.relationship('Blog', backref='author', lazy=True)
+    messages = db.relationship('Messages', backref='author', lazy=True)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
@@ -76,3 +77,4 @@ class Messages(db.Model):
     email = db.Column(db.String(100), nullable=False)
     message = db.Column(db.Text, nullable=False)
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)   

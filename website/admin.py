@@ -4,6 +4,8 @@ from .models import Jobs, Events, Scholarships, Files, Gallery, Blog, User, Mess
 from .forms import JobsForm, ScholarshipForm, EventForm, FilesForm, BlogForm, GalleryForm
 from werkzeug.utils import secure_filename #used when dealing with images
 from flask_login import login_required, current_user    
+from sqlalchemy.orm import joinedload
+
 
 admin = Blueprint('admin' , __name__)
 
@@ -47,7 +49,7 @@ def all_gallery():
 
 @admin.route('/view_messages')
 def all_messages():
-    messages = Messages.query.all()
+    messages = Messages.query.options(joinedload(Messages.author)).all()
     return render_template('all_messages.html', messages=messages)
 
 
@@ -82,7 +84,7 @@ def add_job():
             return redirect(url_for('admin.all_jobs'))
 
         else:
-            flash('it's us, job not added, please try again' , "error")
+            flash('job not added, please try again' , "error")
             print('job not added!!')
 
     return render_template('add_job.html' , form = form)
@@ -447,7 +449,7 @@ def submit_message():
             flash('All fields are required!', 'error')
             return redirect(url_for('views.contact'))
 
-        new_message = Messages(name=name, email=email, message=message)
+        new_message = Messages(name=name, email=email, message=message, user_id = current_user.id)
         db.session.add(new_message)
         db.session.commit()
 
