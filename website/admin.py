@@ -60,6 +60,7 @@ def get_image(filename):
 
 #CRUD operations for the whole application
 #Jobs
+#these routes deals with everything concerning jobs
 @admin.route('/add_job' , methods = ['POST' , 'GET'])
 def add_job():
     form = JobsForm()
