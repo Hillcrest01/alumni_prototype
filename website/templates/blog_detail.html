@@ -6,7 +6,7 @@
 <div class="blog-container">
     <h1>{{ blog.title }}</h1>
     <p class="blog-meta">
-        Published by 
+        This blog has been Published by 
         <a href="{{ url_for('views.user_profile', user_id=blog.author.id) }}">
             <img src="../static/images/avatar2.jpeg" class="author-img" alt="Profile Picture">
             {{ blog.author.username }}
