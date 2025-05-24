@@ -90,7 +90,7 @@ def add_job():
 
     return render_template('add_job.html' , form = form)
 
-
+#route for editing jobs
 @admin.route('/edit_job/<int:job_id>' , methods = ['POST' , 'GET'])
 def edit_job(job_id):
     job = Jobs.query.get_or_404(job_id)
