@@ -20,7 +20,7 @@ def admin_page():
 def all_users():
     all_users = User.query.all()
     return render_template("all_users.html" , all_users = all_users)
-
+#route to view all the jobs
 @admin.route('/view_jobs')
 def all_jobs():
     all_jobs = Jobs.query.all()
