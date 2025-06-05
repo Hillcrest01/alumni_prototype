@@ -4,5 +4,6 @@ This system connects alumni with current students and unites them with the staff
 It displays the jobs, events and scholarships as well
 All university stuffs can be accessed in one system -- and that is this system.
 it provides mentorship to the students.
+For the new students, they're welcomed with well-defined introduction to the course, what they expect to learn and the careers they can venture in by studying the course. 
 
 
